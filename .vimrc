@@ -1,54 +1,53 @@
 syntax enable
 filetype plugin indent on
 
-" GENERAL CONFIGURATION
-" ---------------------
+" #GENERAL CONFIGURATION#
+" -----------------------
  
-set nocompatible " disable vi compatability
+set nocompatible " disable vi compatibility
 set history=1000
 set autoread
 set noswapfile
 set clipboard+=unnamed " Yanks go on clipboard instead
 set showmode
 set wildmenu
+set spell
 
-" Apperance Options
+" Appearance Options
 set background=dark
 set ruler " Ruler on
 set number " put line numbers on the side
 set listchars=tab:▸\ ,eol:¬ " set tab chars to ▸ and end of line chars to ¬
 
-" Case options
+" Case Options
 set ignorecase
 set smartcase
 
 " Search Options
 set incsearch " Highlights searches
 set hlsearch " Highlights current search
-nmap \q :nohlsearch<CR> " Turn off hlsearch with \q
 
-" Scroll options
+" Scroll Options
 set scrolloff=8
 set sidescrolloff=15
 set sidescroll=1
 
-" Indentation options
+" Indentation Options
 set noexpandtab
 set smartindent
 
-" softtabstob, tabstop, and shiftwidth need to be =
+" Softtabstob, Tabstop, and Shiftwidth need to be =
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 
 " Buffer Options
-set hidden " automagically make hidden buffers
+set hidden " make hidden buffers automagically 
 
 " ################################################################################
 
-
-" KEY MAPPINGS
-" ------------
+" #KEY MAPPINGS#
+" --------------
 
 " disable arrow keys so you rely on hjkl
 "" for command mode
@@ -61,20 +60,29 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-"" set shortcuts for window navigation
+
+" Window Navigation
 map <C-k> <C-w>k
 map <C-j> <C-w>j
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
-" j and k don't navigate linewise
+" Buffer Navigation
+nmap <C-e> :b#<CR> " Switch to last buffer with Ctrl-e
+
+" Leader Commands
+nmap \q :nohlsearch<CR> " Turn off search highlights with \q
+nmap \ov :e ~/.vim/.vimrc<CR> " open your vimrc in a new buffer
+nmap \oc :e ~/.vim/cheatsheet.txt<CR> " open your cheatsheet in a new buffer
+
+" j and k don't navigate absolutely as opposed to linewise
 nmap j gj
 nmap k gk
 
 " ################################################################################
 
-" PLUGIN CONFIGURATION
-" --------------------
+" #PLUGIN CONFIGURATION#
+" ----------------------
 
 " Pathogen
 execute pathogen#infect()
