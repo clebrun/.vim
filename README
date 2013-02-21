@@ -1,7 +1,7 @@
 #INSTALLATION#
 --------------
 # Step 0: clone .Vim repository into ~/.vim
-> git clone http://github.com/username/dotvim.git ~/.vim
+> git clone http://github.com/aerowolf01/.vim.git ~/.vim
 # Step 1: link ~/.vim/vimrc to ~/.vimrc
 > ln -s ~/.vim/vimrc ~/.vimrc
 # Step 2: install plugins using git submodules
