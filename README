@@ -1,0 +1,6 @@
+#INSTALLATION#
+--------------
+
+Step 1: link ~/.vim/vimrc to ~/.vimrc
+> ln -s ~/.vim/vimrc ~/.vimrc
+TODO: step 2  intiating/updating git submodules
