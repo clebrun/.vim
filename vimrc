@@ -20,7 +20,8 @@ set rnu " initialize rnu so that when you start you don't have an empty side
 
 " source the vimrc file after saving it
 if has("autocmd")
-	autocmd bufwritepost .vimrc source $MYVIMRC
+	" if you save your vimrc, reload your vimrc
+	autocmd bufwritepost vimrc source $MYVIMRC
 
 	" set number when in insert mode, set relativenumber when you leave insert mode
 	autocmd InsertEnter * :set number
@@ -69,7 +70,7 @@ nmap <C-e> :b#<CR> " Switch to last buffer with Ctrl-e
 " Leader Commands
 " ---------------
 "" Open Commands
-nmap \ov :e ~/.vim/.vimrc<CR> " open your vimrc in a new buffer
+nmap \ov :e ~/.vim/vimrc<CR> " open your vimrc in a new buffer
 nmap \oc :e ~/.vim/cheatsheet.txt<CR> " open your cheatsheet in a new buffer
 nmap \ow :e ~/Docs/work_notes.txt<CR> " open work_notes in a new buffer
 nmap \os :e ~/Docs/scratch.txt<CR> " Open scratch pad
