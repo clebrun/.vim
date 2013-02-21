@@ -1,6 +1,6 @@
 #INSTALLATION#
 --------------
-# Step 0: clone .vim repository into ~/.vim
+# Step 0: clone .Vim repository into ~/.vim
 > git clone http://github.com/username/dotvim.git ~/.vim
 # Step 1: link ~/.vim/vimrc to ~/.vimrc
 > ln -s ~/.vim/vimrc ~/.vimrc
@@ -16,3 +16,11 @@
 > cd ~/.vim
 > git submodules update
 -------------
+
+#MODIFICATION#
+--------------
+# Add a new plugin
+> git submodule add $GITPATH bundle/$PLUGINNAME
+> git add .
+> git commit -m "Install $PLUGINNAME bundle as a submodule."
+--------------
