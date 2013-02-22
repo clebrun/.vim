@@ -1,3 +1,31 @@
+" ################################################################################
+
+" #PLUGIN CONFIGURATION#
+" ----------------------
+" if statements keep this config portable. Don't litter.
+
+" Pathogen
+if has("Pathogen")
+	execute pathogen#infect()
+endif
+
+" Syntastic
+
+" CtrlP
+if has("CtrlP") 
+	" map <C-p> to open CtrlP
+	let g:ctrlp_map = '<c-p>'
+	let g:ctrlp_cmd = 'CtrlP'
+	let g:ctrlp_match_window_bottom = 0
+	let g:ctrlp_match_window_reversed = 0
+	let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+	let g:ctrlp_working_path_mode = 0
+	let g:ctrlp_dotfiles = 0
+	let g:ctrlp_switch_buffer = 0
+endif
+
+" ################################################################################
+
 syntax enable
 filetype plugin indent on
 
@@ -102,12 +130,3 @@ inoremap <Right> <NOP>
 
 " ################################################################################
 
-" ################################################################################
-
-" #PLUGIN CONFIGURATION#
-" ----------------------
-
-" Pathogen
-execute pathogen#infect()
-
-" ################################################################################
