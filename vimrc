@@ -1,15 +1,16 @@
-" ################################################################################
+" echo ">^.^<"
+" ##############################################################################
 
 " #PLUGIN CONFIGURATION#
 " ----------------------
 " if statements keep this config portable. Don't litter.
 
 " Pathogen
-if has("pathogen")
-	execute pathogen#infect()
-	call pathogen#runtime_append_all_bundles()
-	call pathogen#helptags()
-endif
+" if has("pathogen")
+execute pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+" endif
 
 " Syntastic
 
@@ -27,14 +28,11 @@ if has("CtrlP")
 endif
 
 " NerdTree
-if has("NERDTree")
-	nmap \e :NERDTreeToggle<CR>
-endif
+" has("NERDTree")
+nmap <leader>e :NERDTreeToggle<CR>
+" endif
 
-" ################################################################################
-
-syntax enable
-filetype plugin indent on
+" ##############################################################################
 
 " #GENERAL CONFIGURATION#
 " -----------------------
@@ -47,6 +45,9 @@ set clipboard+=unnamed " Yanks go on clipboard instead
 set showmode
 set wildmenu
 set spell
+set backupdir=~/tmp
+syntax enable
+filetype plugin indent on
 
 " Appearance Options
 colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
@@ -56,7 +57,8 @@ set rnu " initialize rnu so that when you start you don't have an empty side
 " source the vimrc file after saving it
 if has("autocmd")
 	" if you save your vimrc, reload your vimrc
-	autocmd bufwritepost vimrc source $MYVIMRC
+	"" commented out in favor of the \sv leader command
+	" autocmd bufwritepost vimrc source $MYVIMRC
 
 	" set number when in insert mode, set relativenumber when you leave insert mode
 	autocmd InsertEnter * :set number
@@ -81,14 +83,14 @@ set noexpandtab
 set smartindent
 
 " Softtabstob, Tabstop, and Shiftwidth need to be =
-set softtabstop=4
-set tabstop=4
-set shiftwidth=4
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
 
 " Buffer Options
 set hidden " make hidden buffers automagically 
 
-" ################################################################################
+" ##############################################################################
 
 " #KEY MAPPINGS#
 " --------------
@@ -100,22 +102,24 @@ map <C-h> <C-w>h
 map <C-l> <C-w>l
 
 " Buffer Navigation
-nmap <C-e> :b#<CR> " Switch to last buffer with Ctrl-e
+"" Go to last buffer with <C-e>
+nmap <C-e> :b#<CR>
 
 " Leader Commands
 " ---------------
 "" Open Commands
-nmap \ov :e ~/.vim/vimrc<CR> " open your vimrc in a new buffer
-nmap \oc :e ~/.vim/cheatsheet.txt<CR> " open your cheatsheet in a new buffer
-nmap \ow :e ~/Docs/work_notes.txt<CR> " open work_notes in a new buffer
-nmap \os :e ~/Docs/scratch.txt<CR> " Open scratch pad
+nmap <leader>ov :e ~/.vim/vimrc<CR> 
+nmap <leader>oc :e ~/.vim/cheatsheet.txt<CR> 
+nmap <leader>ow :e ~/Docs/work_notes.txt<CR> 
+nmap <leader>os :e ~/Docs/scratch.txt<CR> 
 "" Goto Commands
-nmap \gc :e ~/Code/<CR> " Opens code directory
+nmap <leader>gc :e ~/Code/<CR> 
 "" Settings Changes
-nmap \sr :set rnu<CR> " set relative number
-nmap \sn :set number<CR> " set standard number
-nmap \nh :nohlsearch<CR> " Turn off search highlights
-nmap \ns :set nospell<CR> " turn off spellchecker and spell highlighting
+nmap <leader>V :source $MYVIMRC<cr>
+nmap <leader>sr :set rnu<CR> 
+nmap <leader>sn :set number<CR> 
+nmap <leader>nh :nohlsearch<CR> 
+nmap <leader>ns :set nospell<CR> 
 " ---------------
 
 " j and k navigate absolutely as opposed to navigating linewise
@@ -135,5 +139,5 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-" ################################################################################
+" ##############################################################################
 
