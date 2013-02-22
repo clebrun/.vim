@@ -21,6 +21,6 @@
 --------------
 # Add a new plugin
 > git submodule add $GITPATH bundle/$PLUGINNAME
-> git add .
-> git commit -m "Install $PLUGINNAME bundle as a submodule."
+> git add .gitmodules bundle/$PLUGINNAME
+> git commit .gitmodules bundle/ -m "Install $PLUGINNAME bundle as a submodule."
 --------------
