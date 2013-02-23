@@ -18,13 +18,13 @@ call pathogen#helptags()
 if has("CtrlP")
 	" map <C-p> to open CtrlP
 	let g:ctrlp_map = '<c-p>'
-	let g:ctrlp_cmd = 'CtrlP'
-	" let g:ctrlp_match_window_bottom = 0
-	" let g:ctrlp_match_window_reversed = 0
-	" let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-	" let g:ctrlp_working_path_mode = 0
-	" let g:ctrlp_dotfiles = 0
-	" let g:ctrlp_switch_buffer = 0
+	let g:ctrlp_cmd = 'CtrlPMixed'
+	let g:ctrlp_match_window_bottom = 0
+	let g:ctrlp_match_window_reversed = 0
+	let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+	let g:ctrlp_working_path_mode = 0
+	let g:ctrlp_dotfiles = 0
+	let g:ctrlp_switch_buffer = 0
 endif
 
 " NerdTree
@@ -46,20 +46,18 @@ set showmode
 set wildmenu
 set spell
 set backupdir=~/tmp
+set encoding=utf-8
 syntax enable
 filetype plugin indent on
 
 " Appearance Options
 colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
+" colorscheme mayansmoke
 set listchars=tab:▸\ ,eol:¬ " set tab chars to ▸ and end of line chars to ¬
 set rnu " initialize rnu so that when you start you don't have an empty side
+set list
 
-" source the vimrc file after saving it
 if has("autocmd")
-	" if you save your vimrc, reload your vimrc
-	"" commented out in favor of the \sv leader command
-	" autocmd bufwritepost vimrc source $MYVIMRC
-
 	" set number when in insert mode, set relativenumber when you leave insert mode
 	autocmd InsertEnter * :set number
 	autocmd InsertLeave * :set relativenumber
@@ -120,6 +118,7 @@ nmap <leader>sr :set rnu<CR>
 nmap <leader>sn :set number<CR> 
 nmap <leader>nh :nohlsearch<CR> 
 nmap <leader>ns :set nospell<CR> 
+nmap <leader><leader> :CtrlPMixed<CR>
 " ---------------
 
 " j and k navigate absolutely as opposed to navigating linewise
