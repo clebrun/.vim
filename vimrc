@@ -32,12 +32,15 @@ endif
 nmap <leader>e :NERDTreeToggle<CR>
 " endif
 
+" Powerline
+
 " ##############################################################################
 
-" #GENERAL CONFIGURATION#
-" -----------------------
+" #SETTINGS#
+" ----------
  
 set nocompatible " disable vi compatibility
+set laststatus=2
 set history=1000
 set autoread
 set noswapfile
@@ -54,14 +57,7 @@ filetype plugin indent on
 colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
 " colorscheme mayansmoke
 set listchars=tab:▸\ ,eol:¬ " set tab chars to ▸ and end of line chars to ¬
-set rnu " initialize rnu so that when you start you don't have an empty side
-set list
-
-if has("autocmd")
-	" set number when in insert mode, set relativenumber when you leave insert mode
-	autocmd InsertEnter * :set number
-	autocmd InsertLeave * :set relativenumber
-endif
+set number
 
 " Case Options
 set ignorecase
@@ -110,8 +106,13 @@ nmap <leader>ov :e ~/.vim/vimrc<CR>
 nmap <leader>oc :e ~/.vim/cheatsheet.txt<CR> 
 nmap <leader>ow :e ~/Docs/work_notes.txt<CR> 
 nmap <leader>os :e ~/Docs/scratch.txt<CR> 
+"" Close/Delete commands
+nmap <leader>k :bd<cr>
+nmap <leader>!k :bd!<cr>
 "" Goto Commands
 nmap <leader>gc :e ~/Code/<CR> 
+nmap <leader>n :bn<cr>
+nmap <leader>p :bp<cr>
 "" Settings Changes
 nmap <leader>V :source $MYVIMRC<cr>
 nmap <leader>sr :set rnu<CR> 
