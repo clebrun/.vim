@@ -1,11 +1,14 @@
-" echo ">^.^<"
+" Cooper's vimrc
+" cooperlebrun@gmail.com
 " ##############################################################################
+" TODO: learn basic vimscript, rewrite pluging configuration to not break vim
+" if the plugin is not installed.
 
 " #PLUGIN CONFIGURATION#
 " ----------------------
 " if statements keep this config portable. Don't litter.
 
-" Pathogen
+" Pathogen " THIS HAS TO GO FIRST
 " if has("pathogen")
 execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
@@ -17,14 +20,14 @@ call pathogen#helptags()
 " CtrlP
 if has("CtrlP")
 	" map <C-p> to open CtrlP
-	let g:ctrlp_map = '<c-p>'
 	let g:ctrlp_cmd = 'CtrlPMixed'
+	let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+	let g:ctrlp_dotfiles = 0
+	let g:ctrlp_map = '<c-p>'
 	let g:ctrlp_match_window_bottom = 0
 	let g:ctrlp_match_window_reversed = 0
-	let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-	let g:ctrlp_working_path_mode = 0
-	let g:ctrlp_dotfiles = 0
 	let g:ctrlp_switch_buffer = 0
+	let g:ctrlp_working_path_mode = 0
 endif
 
 " NerdTree
@@ -34,29 +37,28 @@ nmap <leader>e :NERDTreeToggle<CR>
 
 " Powerline
 
-" ##############################################################################
-
-" #SETTINGS#
-" ----------
+"############################################################################## 
+" #General Configuration#
+" -----------------------
  
-set nocompatible " disable vi compatibility
-set laststatus=2
-set history=1000
 set autoread
+set history=1000
+set laststatus=2
+set nocompatible " disable vi compatibility
 set noswapfile
-set clipboard+=unnamed " Yanks go on clipboard instead
-set showmode
-set wildmenu
-set spell
-set backupdir=~/tmp
+set backupdir=~/backups/vim
 set encoding=utf-8
+set showmode
+set spell
+set wildmenu
 syntax enable
 filetype plugin indent on
 
 " Appearance Options
 colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
-" colorscheme mayansmoke
-set listchars=tab:▸\ ,eol:¬ " set tab chars to ▸ and end of line chars to ¬
+set cursorcolumn
+set cursorline
+set listchars=tab:▸\ ,eol:¬
 set number
 
 " Case Options
@@ -68,7 +70,7 @@ set incsearch " Highlights searches
 set hlsearch " Highlights current search
 
 " Scroll Options
-set scrolloff=8
+set scrolloff=5
 set sidescrolloff=15
 set sidescroll=1
 
@@ -77,12 +79,17 @@ set noexpandtab
 set smartindent
 
 " Softtabstob, Tabstop, and Shiftwidth need to be =
+set shiftwidth=2
 set softtabstop=2
 set tabstop=2
-set shiftwidth=2
 
 " Buffer Options
 set hidden " make hidden buffers automagically 
+
+" ##############################################################################
+" External Application configuration
+vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 
 " ##############################################################################
 
@@ -90,54 +97,85 @@ set hidden " make hidden buffers automagically
 " --------------
 
 " Window Navigation
-map <C-k> <C-w>k
-map <C-j> <C-w>j
 map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Buffer Navigation
 "" Go to last buffer with <C-e>
 nmap <C-e> :b#<CR>
 
 " Leader Commands
 " ---------------
 "" Open Commands
-nmap <leader>ov :e ~/.vim/vimrc<CR> 
 nmap <leader>oc :e ~/.vim/cheatsheet.txt<CR> 
-nmap <leader>ow :e ~/Docs/work_notes.txt<CR> 
-nmap <leader>os :e ~/Docs/scratch.txt<CR> 
+nmap <leader>om :e ~/.muttrc<CR> 
+nmap <leader>on :e ~/Docs/notes/
+nmap <leader>os :e ~/Docs/notes/scratch.txt<CR> 
+nmap <leader>ot :e ~/.tmux.conf<CR> 
+nmap <leader>ou :e ~/.newsbeuter/urls<CR> 
+nmap <leader>ov :e ~/.vim/vimrc<CR> 
+nmap <leader>ow :e ~/Docs/notes/work_notes.txt<CR> 
+nmap <leader>oz :e ~/.zshrc<CR> 
 "" Close/Delete commands
-nmap <leader>k :bd<cr>
-nmap <leader>!k :bd!<cr>
+nmap <leader>!k :bd!<CR>
+nmap <leader>Q :q!<CR>
+nmap <leader>k :bd<CR>
+nmap <leader>q :q<CR>
+"" Save commands
+nmap <leader><leader> :w<CR>
+nmap <leader>W :w!<CR>
 "" Goto Commands
 nmap <leader>gc :e ~/Code/<CR> 
-nmap <leader>n :bn<cr>
-nmap <leader>p :bp<cr>
+nmap <leader>n :bn<CR>
+nmap <leader>p :bp<CR>
 "" Settings Changes
-nmap <leader>V :source $MYVIMRC<cr>
-nmap <leader>sr :set rnu<CR> 
-nmap <leader>sn :set number<CR> 
-nmap <leader>nh :nohlsearch<CR> 
+nmap <leader><space> :nohlsearch<CR> 
+nmap <leader>V :source $MYVIMRC<CR>
 nmap <leader>ns :set nospell<CR> 
-nmap <leader><leader> :CtrlPMixed<CR>
+nmap <leader>p :CtrlPMixed<CR>
+nmap <leader>sn :set number<CR> 
+nmap <leader>sr :set rnu<CR> 
+" Visual
+vnoremap <leader>s :sort<cr>
 " ---------------
 
 " j and k navigate absolutely as opposed to navigating linewise
 nmap j gj
 nmap k gk
 
-" unmap keys 
+" tab goes to next occurence of the word your cursor is on
+map <tab> *
+
+" Next or previous occurence of SEARCH is centered when jumped to
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" H and L now do 0 and $
+nnoremap H ^
+nnoremap L g_
+
+" J&K in the style of H and L
+nnoremap J L
+nnoremap K H
+
+" Don't move when * is invoked, just search
+nnoremap * *<c-o>
+
+" Press jk in insert mode to get back to normal mode
+" smart, but for now I have capslock remapped to esc
+"inoremap jk <esc>
+
+" make Y behave like other capitals
+nnoremap Y y$
+
+" Destroy Mappings
 " disable arrow keys so you rely on hjkl
-"" for command mode
 noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
-"" and insert mode
 inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
-" ##############################################################################
-
