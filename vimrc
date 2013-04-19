@@ -1,4 +1,3 @@
-" Cooper's vimrc
 " cooperlebrun@gmail.com
 " ##############################################################################
 " TODO: learn basic vimscript, rewrite pluging configuration to not break vim
@@ -9,13 +8,9 @@
 " if statements keep this config portable. Don't litter.
 
 " Pathogen " THIS HAS TO GO FIRST
-" if has("pathogen")
 execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
-" endif
-
-" Syntastic
 
 " CtrlP
 if has("CtrlP")
@@ -31,11 +26,7 @@ if has("CtrlP")
 endif
 
 " NerdTree
-" has("NERDTree")
 nmap <leader>e :NERDTreeToggle<CR>
-" endif
-
-" Powerline
 
 "############################################################################## 
 " #General Configuration#
@@ -86,13 +77,6 @@ set tabstop=2
 " Buffer Options
 set hidden " make hidden buffers automagically 
 
-" ##############################################################################
-" External Application configuration
-vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
-
-" ##############################################################################
-
 " #KEY MAPPINGS#
 " --------------
 
@@ -107,7 +91,18 @@ nmap <C-e> :b#<CR>
 
 " Leader Commands
 " ---------------
-"" Open Commands
+nmap <leader>!k :bd!<CR>
+nmap <leader><leader> :w<CR>
+nmap <leader><space> :nohlsearch<CR> 
+nmap <leader>Q :q!<CR>
+nmap <leader>V :source $MYVIMRC<CR>
+nmap <leader>W :w!<CR>
+nmap <leader>gc :e ~/Code/<CR> 
+nmap <leader>k :bd<CR>
+nmap <leader>l yypVr-yy
+nmap <leader>n :bn<CR>
+nmap <leader>ns :set nospell<CR> 
+nmap <leader>nts :e ~/Docs/notes/notes_to_self.txt<CR> 
 nmap <leader>oc :e ~/.vim/cheatsheet.txt<CR> 
 nmap <leader>om :e ~/.muttrc<CR> 
 nmap <leader>on :e ~/Docs/notes/
@@ -117,37 +112,25 @@ nmap <leader>ou :e ~/.newsbeuter/urls<CR>
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
 nmap <leader>ow :e ~/Docs/notes/work_notes.txt<CR> 
 nmap <leader>oz :e ~/.zshrc<CR> 
-"" Close/Delete commands
-nmap <leader>!k :bd!<CR>
-nmap <leader>Q :q!<CR>
-nmap <leader>k :bd<CR>
-nmap <leader>q :q<CR>
-"" Save commands
-nmap <leader><leader> :w<CR>
-nmap <leader>W :w!<CR>
-"" Goto Commands
-nmap <leader>gc :e ~/Code/<CR> 
-nmap <leader>n :bn<CR>
-nmap <leader>p :bp<CR>
-"" Settings Changes
-nmap <leader><space> :nohlsearch<CR> 
-nmap <leader>V :source $MYVIMRC<CR>
-nmap <leader>ns :set nospell<CR> 
 nmap <leader>p :CtrlPMixed<CR>
+nmap <leader>p :bp<CR>
+nmap <leader>q :q<CR>
 nmap <leader>sn :set number<CR> 
 nmap <leader>sr :set rnu<CR> 
-" Visual
-vnoremap <leader>s :sort<cr>
+nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+vnoremap <leader>a :Align\|<cr>
+vnoremap <leader>s :sort<CR>
 " ---------------
 
 " j and k navigate absolutely as opposed to navigating linewise
 nmap j gj
 nmap k gk
 
-" tab goes to next occurence of the word your cursor is on
+" tab goes to next occurrence of the word your cursor is on
 map <tab> *
 
-" Next or previous occurence of SEARCH is centered when jumped to
+" Next or previous occurrence of SEARCH is centered when jumped to
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -163,13 +146,13 @@ nnoremap K H
 nnoremap * *<c-o>
 
 " Press jk in insert mode to get back to normal mode
-" smart, but for now I have capslock remapped to esc
-"inoremap jk <esc>
+"inoremap kj <esc>
 
 " make Y behave like other capitals
 nnoremap Y y$
 
 " Destroy Mappings
+
 " disable arrow keys so you rely on hjkl
 noremap <Up> <NOP>
 noremap <Down> <NOP>
