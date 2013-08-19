@@ -14,7 +14,7 @@
 -------------
 # Update your plugins
 > cd ~/.vim
-> git submodules update
+> git submodule update
 -------------
 
 #MODIFICATION#
@@ -23,4 +23,11 @@
 > git submodule add $GITPATH bundle/$PLUGINNAME
 > git add .gitmodules bundle/$PLUGINNAME
 > git commit .gitmodules bundle/ -m "Install $PLUGINNAME bundle as a submodule."
+# Remove a plugin
+Delete the relevant section from the .gitmodules file.
+Stage the .gitmodules changes git add .gitmodules
+Delete the relevant section from .git/config.
+Run git rm --cached path_to_submodule (no trailing slash).
+Run rm -rf .git/modules/submodule_name
+rm -rf path_to_submodule
 --------------

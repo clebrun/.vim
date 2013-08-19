@@ -6,7 +6,7 @@
 " #PLUGIN CONFIGURATION#
 " ----------------------
 " if statements keep this config portable. Don't litter.
-
+" test test test ( test test test"")
 " Pathogen " THIS HAS TO GO FIRST
 execute pathogen#infect()
 call pathogen#runtime_append_all_bundles()
@@ -40,17 +40,20 @@ set noswapfile
 set backupdir=~/backups/vim
 set encoding=utf-8
 set showmode
-set spell
+"set spell
 set wildmenu
 syntax enable
 filetype plugin indent on
 
 " Appearance Options
 colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
+"colorscheme smyck " for new colorschemes, download into ~/.vim/colors
 set cursorcolumn
 set cursorline
 set listchars=tab:▸\ ,eol:¬
-set number
+"set number
+set rnu
+set colorcolumn=80
 
 " Case Options
 set ignorecase
@@ -76,6 +79,14 @@ set tabstop=2
 
 " Buffer Options
 set hidden " make hidden buffers automagically 
+
+" Folding
+set foldmethod=indent
+set foldlevel=99
+
+" Filetype specific options
+" use formating options if editing a plain text file
+autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t
 
 " #KEY MAPPINGS#
 " --------------
@@ -115,6 +126,7 @@ nmap <leader>oz :e ~/.zshrc<CR>
 nmap <leader>p :CtrlPMixed<CR>
 nmap <leader>p :bp<CR>
 nmap <leader>q :q<CR>
+nmap <leader>ss :set spell!<CR> 
 nmap <leader>sn :set number<CR> 
 nmap <leader>sr :set rnu<CR> 
 nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
@@ -139,8 +151,6 @@ nnoremap H ^
 nnoremap L g_
 
 " J&K in the style of H and L
-nnoremap J L
-nnoremap K H
 
 " Don't move when * is invoked, just search
 nnoremap * *<c-o>
@@ -151,8 +161,11 @@ nnoremap * *<c-o>
 " make Y behave like other capitals
 nnoremap Y y$
 
-" Destroy Mappings
+" <F2> takes a name of a program and generates a hashbang (e.g.
+" #!/usr/bin/bash)
+map <F2> 0v$hy0D:r! which <C-R>0<CR>I#!<esc>kJ
 
+" Destroy Mappings
 " disable arrow keys so you rely on hjkl
 noremap <Up> <NOP>
 noremap <Down> <NOP>
