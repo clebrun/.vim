@@ -52,6 +52,7 @@ endif
 nmap <leader>e :NERDTreeToggle<CR>
 
 " EasyMotion
+" not sure if this works
 let g:EasyMotion_leader_key = '<Leader>'
 
 "############################################################################## 
@@ -66,24 +67,27 @@ set autoread
 " keep up to 50 previous searches
 set history=50
 
-set laststatus=2
+set laststatus=2 " required for powerline
 set nocompatible " disable vi compatibility
 set noswapfile
 set encoding=utf-8
 set showmode
-" try :set guifont=* for a graphical menu
-set guifont=Monospace\ 11
-"set spell
+
+set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
+"set spell " spell-check on by default
 set wildmenu
 syntax enable
 filetype plugin indent on
 
 " Appearance Options
-colorscheme zenburn " for new colorschemes, download into ~/.vim/colors
-"colorscheme smyck " for new colorschemes, download into ~/.vim/colors
+colorscheme zenburn " for new color schemes, download into ~/.vim/colors
+" Vertical and horizontal line highlights
 set cursorcolumn
 set cursorline
+
+" Pretty unicode characters for whitespace when list is on
 set listchars=tab:▸\ ,eol:¬
+
 set rnu
 set colorcolumn=80
 
@@ -125,22 +129,27 @@ inoremap <leader>. <esc>
 "" Go to last buffer with <C-e>
 nmap <C-e> :b#<CR>
 
-nmap <leader>!k :bd!<CR>
 nmap <leader><leader> :w<CR>
 nmap <leader><space> :nohlsearch<CR> 
-nmap <leader>Q :q!<CR>
 nmap <leader>V :source $MYVIMRC<CR>
-nmap <leader>W :w!<CR>
 nmap <leader>gc :e ~/Code/<CR> 
 nmap <leader>k :bd<CR>
-nmap <leader>l yypVr-yy
+
+" Make a separator out of -s that is equal in length to the current line
+nmap <leader>l yypVr-
 nmap <leader>n :bn<CR>
-nmap <leader>ns :set nospell<CR> 
+
+" Open this file
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
+
+" Open snippets folder
 nmap <leader>os :e ~/.vim/bundle/vim-snippets/snippets<CR> 
+
 nmap <leader>oz :e ~/.zshrc<CR> 
 nmap <leader>p :CtrlPMixed<CR>
 nmap <leader>q :q<CR>
+
+" Toggle spell-check
 nmap <leader>ss :set spell!<CR> 
 
 " Switch between number and rnu more easily
