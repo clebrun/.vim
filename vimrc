@@ -50,8 +50,7 @@ endif
 nmap <leader>n :NERDTreeToggle<CR>
 
 " EasyMotion
-" not sure if this works, or if I want it too.
-let g:EasyMotion_leader_key = '<Leader>'
+" let g:EasyMotion_leader_key = '<Leader>'
 
 "############################################################################## 
 
