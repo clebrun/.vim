@@ -22,7 +22,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline'
+"Bundle 'Lokaltog/powerline'
+Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
