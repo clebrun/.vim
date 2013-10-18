@@ -1,33 +1,23 @@
 #INSTALLATION#
 --------------
-# Step 0: clone .Vim repository into ~/.vim
+# Step 0: clone .vim repository into ~/.vim
 > git clone https://github.com/aerowolf01/.vim.git ~/.vim
-# Step 1: link ~/.vim/vimrc to ~/.vimrc
-> ln -s ~/.vim/vimrc ~/.vimrc
-# Step 2: install plugins using git submodules
-> cd ~/.vim
-> git submodule init
-> git submodule update
+# Step 1: install plugins using vundle
+:BundleInstall
 --------------
 
 #MAINTENANCE#
 -------------
 # Update your plugins
-> cd ~/.vim
-> git submodule update
+:BundleInstall
 -------------
 
 #MODIFICATION#
 --------------
 # Add a new plugin
-> git submodule add $GITPATH bundle/$PLUGINNAME
-> git add .gitmodules bundle/$PLUGINNAME
-> git commit .gitmodules bundle/ -m "Install $PLUGINNAME bundle as a submodule."
+Bundle "authorname/reponame"
+:BundleInstall
 # Remove a plugin
-Delete the relevant section from the .gitmodules file.
-Stage the .gitmodules changes git add .gitmodules
-Delete the relevant section from .git/config.
-Run git rm --cached path_to_submodule (no trailing slash).
-Run rm -rf .git/modules/submodule_name
-rm -rf path_to_submodule
+remove plugin folder from .vim/bundle
+remove Bundle entry from vimrc
 --------------
