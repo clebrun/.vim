@@ -1,0 +1,89 @@
+## Created by Cooper LeBrun for 4.3.17
+autoload -Uz colors && colors
+export EDITOR="vim"
+#export PATH="$HOME/.rbenv/bin:$HOME/.cabal/bin:$HOME/.rbenv/versions/1.9.3-p385/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+HISTFILE=~/.zsh-history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory autocd extendedglob
+unsetopt beep nomatch notify
+#eval "$(rbenv init -)" 
+
+## Prompt
+# v includes time
+#PS1="%{%(1j.%j.)$fg[green]%}%t %{$fg[white]%}%m%{$fg[green]%}@%{$fg[cyan]%}%3c %{$fg[green]%}%#>%{$reset_color%} "
+# does not include time	
+#PS1="%(1j.%j.) %{$fg[white]%}%m%{$fg[green]%}@%{$fg[cyan]%}%3c %{$fg[green]%}%#>%{$reset_color%} "
+# just number of background jobs, Time, working directory, root/user indicator and a >.
+PS1="%{$bg[black]%}%{$fg[green]%}%1c > %{$reset_color%}"
+
+## Case insensitive completion (works)
+## works, but I don't understand it, and suspect there are some bad lines here
+# Completions
+autoload -U compinit
+compinit -C
+# case-insensitive (all),partial-word and then substring completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
+	    'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+## Linux aliases
+#alias l='ls -lahF'
+alias poweroff='shutdown -h now'
+alias bigfont='xrdb -merge /home/cooper/.bigfont'
+alias rexrdb='xrdb -merge /home/cooper/.Xresources'
+alias feedme='newsbeuter'
+alias xit='exit'
+
+## Directory shortcuts
+
+alias .='cd ../'
+alias ..='cd ../../'
+alias ...='cd ../../../'
+alias la='ls -a'
+#alias docs='~/Docs/'
+#alias tonotes='>> ~/notes'
+#alias notes='~/Docs/notes'
+alias code='~/Code'
+alias lc='ls --color'
+alias music='cd /home/cooper/Audio/music'
+
+## I stopped using ubuntu
+#alias upgrade='sudo apt-get update; sudo apt-get upgrade'
+
+## Common pacman commands
+alias install='sudo pacman -S'
+alias update='sudo pacman -Sy'
+alias upgrade='sudo pacman -Syu'
+alias search='sudo pacman -Ss'
+
+## network
+alias wicdstatus='systemctl status wicd'
+alias pingtest='ping -c 2 www.google.com'
+
+## general application aliases
+alias emacs='emacs -nw'
+## make below so that it sources my vimrc
+## doesn't work
+alias svim='sudo vim -S /home/cooper/.vimrc'
+# alias vi='vim'
+alias ve='vim -c E'
+alias gs="git status"
+alias gc="git commit"
+alias xre='xmonad --restart'
+alias pss='ps -ef | grep -i '
+alias chromium='chromium --purge-memory-button'
+alias stats='screenfetch 2>/dev/null'
+alias sx='startx'
+alias cim="vim"
+alias screenoff="sleep 1 && xset dpms force off"
+
+## mpd/mpc/ncmpcpp aliases
+alias tog='mpc toggle'
+alias playing='mpc current'
+#alias volup
+#alias voldown
+
+## Bindkeys
+bindkey '^R' history-incremental-search-backward
+eval $(keychain --eval --agents ssh -Q --quiet id_ecdsa)

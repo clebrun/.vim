@@ -11,29 +11,11 @@ let g:mapleader = ","
 " #PLUGIN CONFIGURATION#
 " ----------------------
 " if statements keep this config portable. Don't litter.
-" Depricated in favor of vundle
+" test test test ( test test test"")
 " Pathogen " THIS HAS TO GO FIRST
-"execute pathogen#infect()
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-
-" Vundle
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-" Bundles
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline'
-Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-" 3 deps for snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
-Bundle 'Lokaltog/vim-easymotion'
+execute pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " CtrlP
 if has("CtrlP")
@@ -51,12 +33,10 @@ endif
 " NerdTree
 nmap <leader>e :NERDTreeToggle<CR>
 
-" EasyMotion
-let g:EasyMotion_leader_key = '<Leader>'
-
 "############################################################################## 
 " #General Configuration#
 " -----------------------
+
 
 " disable backups
 set nobackup
@@ -71,7 +51,7 @@ set nocompatible " disable vi compatibility
 set noswapfile
 set encoding=utf-8
 set showmode
-" try :set guifont=* for a graphical menu
+" try :set guifont=* in gvim for a menu of fonts
 set guifont=Monospace\ 11
 "set spell
 set wildmenu
@@ -119,12 +99,17 @@ autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t
 " #KEY MAPPINGS#
 " --------------
 
-" Alternate esc mapping
-inoremap <leader>. <esc>
+" Split Navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 "" Go to last buffer with <C-e>
 nmap <C-e> :b#<CR>
 
+" Leader Commands
+" ---------------
 nmap <leader>!k :bd!<CR>
 nmap <leader><leader> :w<CR>
 nmap <leader><space> :nohlsearch<CR> 
@@ -137,30 +122,17 @@ nmap <leader>l yypVr-yy
 nmap <leader>n :bn<CR>
 nmap <leader>ns :set nospell<CR> 
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
-nmap <leader>os :e ~/.vim/bundle/vim-snippets/snippets<CR> 
 nmap <leader>oz :e ~/.zshrc<CR> 
 nmap <leader>p :CtrlPMixed<CR>
 nmap <leader>q :q<CR>
 nmap <leader>ss :set spell!<CR> 
-
-" Switch between number and rnu more easily
 nmap <leader>sn :set number<CR> 
 nmap <leader>sr :set rnu<CR> 
-
-" Easy filetype setting
-nmap <leader>sf :set ft=
-
-" Copy and Paste
 nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-
 vnoremap <leader>a :Align\|<cr>
-
-" Split Navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+vnoremap <leader>s :sort<CR>
+" ---------------
 
 " j and k navigate absolutely as opposed to navigating linewise
 nmap j gj
@@ -182,6 +154,8 @@ nnoremap L g_
 " Don't move when * is invoked, just search
 nnoremap * *<c-o>
 
+" Press jk in insert mode to get back to normal mode
+"inoremap kj <esc>
 
 " make Y behave like other capitals
 nnoremap Y y$
