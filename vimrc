@@ -23,6 +23,7 @@ call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
 "Bundle 'Lokaltog/powerline'
+" old, replace at some point
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdtree'
@@ -34,6 +35,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-fugitive'
 
 " CtrlP
 if has("CtrlP")
@@ -63,21 +65,22 @@ filetype plugin indent on
 
 set nobackup " disable backups
 set autoread
-set history=50 " keep up to 50 previous commands
+set lazyredraw " Performance tweak, don't redraw while executing macros
+set history=500 " keep up to 50 previous commands
 set laststatus=2 " required for powerline
 set nocompatible " disable vi compatibility
 set noswapfile
-set encoding=utf-8
-set showmode
+set encoding=utf-8 " show utf-8 chars properly
+" set showmode " Not needed when powerline is on
 set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
 "set spell " spell-check on by default
-set wildmenu " turn on auto-completion
+set wildmenu " show auto-completion menu
 colorscheme zenburn " for new color schemes, download into ~/.vim/colors
 set cursorcolumn " Vertical and...
 set cursorline " horizontal line highlights
 set listchars=tab:▸\ ,eol:¬ " Pretty unicode characters for whitespace when list is on
-set relativenumber
-set colorcolumn=80
+set number " show line numbers
+set colorcolumn=80 " highlight columb 80
 
 " Search Options
 set ignorecase " Searches are case insensitive
@@ -91,7 +94,7 @@ set sidescrolloff=15
 set sidescroll=1
 
 " Indentation Options
-set noexpandtab
+set noexpandtab " don't use tab characters
 set smartindent
 " Softtabstob, Tabstop, and Shiftwidth need to be =
 set shiftwidth=2
@@ -122,7 +125,7 @@ inoremap <leader><tab> <c-p>
 nmap <C-e> :b#<CR>
 
 " Quick save
-nmap <leader><leader> :w<CR>
+nmap <leader><leader><leader> :w<CR>
 
 " Turn off search highlight
 nmap <leader><space> :nohlsearch<CR> 
