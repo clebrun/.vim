@@ -114,7 +114,7 @@ autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t
 " --------------
 
 " Alternate esc mapping
-inoremap ,. <esc>
+map ,. <esc>
 " or for qwerty
 " inoremap kj <esc>
 
@@ -131,7 +131,7 @@ nmap <leader><leader><leader> :w<CR>
 nmap <leader><space> :nohlsearch<CR> 
 
 " Apply changes made to the config to the currently running vim session
-nmap <leader>V :source $MYVIMRC<CR>
+nmap <leader>v :source $MYVIMRC<CR>
 
 " Make a separator out of -s that is equal in length to the current line
 map <leader>l yypVr-
@@ -139,6 +139,9 @@ map <leader>l yypVr-
 " Next and previous buffer
 nmap <leader>k :bn<CR>
 nmap <leader>j :bp<CR>
+
+" CtrlP mapping
+nmap <leader>p :CtrlPMixed<CR>
 
 " Delete current buffer
 nmap <leader>d :bd<CR>
@@ -163,7 +166,7 @@ nmap <leader>sr :set rnu<CR>
 nmap <leader>sf :set ft=
 
 " Copy and Paste
-nmap <leader>v :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+nmap <leader>V :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 
 vnoremap <leader>a :Align\|<cr>
