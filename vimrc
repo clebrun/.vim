@@ -94,12 +94,12 @@ set sidescrolloff=15
 set sidescroll=1
 
 " Indentation Options
-set noexpandtab " don't use tab characters
+set expandtab " don't use tab characters
 set smartindent
 " Softtabstob, Tabstop, and Shiftwidth need to be =
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 " Buffer Options
 set hidden " make hidden buffers automagically 
