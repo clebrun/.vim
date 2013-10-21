@@ -115,20 +115,24 @@ autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t
 
 " Alternate esc mapping
 map ,. <esc>
+inoremap ,. <esc>
 " or for qwerty
 " inoremap kj <esc>
 
-" auto complete remapping
+" auto complete
+inoremap <leader><tab> <c-p>
+
+" quick split switch
 inoremap <leader><tab> <c-p>
 
 "" Go to last buffer with <C-e>
 nmap <C-e> :b#<CR>
 
 " Quick save
-nmap <leader><leader><leader> :w<CR>
+nmap <leader><space> :w<CR> 
 
 " Turn off search highlight
-nmap <leader><space> :nohlsearch<CR> 
+nmap <leader><leader><leader> :nohlsearch<CR>
 
 " Apply changes made to the config to the currently running vim session
 nmap <leader>v :source $MYVIMRC<CR>
@@ -140,11 +144,12 @@ map <leader>l yypVr-
 nmap <leader>k :bn<CR>
 nmap <leader>j :bp<CR>
 
-" CtrlP mapping
+" CtrlP
 nmap <leader>p :CtrlPMixed<CR>
 
 " Delete current buffer
 nmap <leader>d :bd<CR>
+nmap <leader>D :bd!<CR>
 
 " Open this file
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
@@ -180,9 +185,6 @@ map <C-l> <C-w>l
 " j and k navigate absolutely as opposed to navigating linewise
 nmap j gj
 nmap k gk
-
-" tab goes to next occurrence of the word your cursor is on
-map <tab> *
 
 " Next or previous occurrence of SEARCH is centered when jumped to
 nnoremap n nzzzv
