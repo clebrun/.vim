@@ -57,8 +57,8 @@ nmap <leader>n :NERDTreeToggle<CR>
 
 "############################################################################## 
 
-" #General Configuration#
-" -----------------------
+" #Settings#
+" ----------
 
 syntax enable
 filetype plugin indent on
@@ -79,7 +79,7 @@ colorscheme zenburn " for new color schemes, download into ~/.vim/colors
 set cursorcolumn " Vertical and...
 set cursorline " horizontal line highlights
 set listchars=tab:▸\ ,eol:¬ " Pretty unicode characters for whitespace when list is on
-set number " show line numbers
+set rnu " show line numbers
 set colorcolumn=80 " highlight columb 80
 
 " Search Options
@@ -125,56 +125,52 @@ inoremap <leader><tab> <c-p>
 " quick split switch
 inoremap <leader><tab> <c-p>
 
-"" Go to last buffer with <C-e>
+" Go to last buffer with <C-e>
 nmap <C-e> :b#<CR>
 
-" Quick save
-nmap <leader><space> :w<CR> 
-
-" Turn off search highlight
-nmap <leader><leader><leader> :nohlsearch<CR>
-
-" Apply changes made to the config to the currently running vim session
+"" Operations
+" save
+nmap <leader>w :w<CR> 
+nmap <leader>W :w!<CR> 
+" quit
+nmap <leader>q :q<CR>
+nmap <leader>Q :q!<CR>
+" Delete current buffer
+nmap <leader>d :bd<CR>
+nmap <leader>D :bd!<CR>
+" Next and previous buffer
+nmap <leader>k :bn<CR>
+nmap <leader>j :bp<CR>
+" Re-source
 nmap <leader>v :source $MYVIMRC<CR>
 
 " Make a separator out of -s that is equal in length to the current line
 map <leader>l yypVr-
 
-" Next and previous buffer
-nmap <leader>k :bn<CR>
-nmap <leader>j :bp<CR>
-
 " CtrlP
 nmap <leader>p :CtrlPMixed<CR>
 
-" Delete current buffer
-nmap <leader>d :bd<CR>
-nmap <leader>D :bd!<CR>
-
-" Open this file
+"" Edits
+" vimrc
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
-
-" Open snippets folder
+" snippets folder
 nmap <leader>os :e ~/.vim/bundle/vim-snippets/snippets<CR> 
-
+" zshrc
 nmap <leader>oz :e ~/.zshrc<CR> 
-nmap <leader>q :q<CR>
 
-" Toggle spell-check
-nmap <leader>ss :set spell!<CR> 
-
-" Switch between number and rnu more easily
-nmap <leader>sn :set number<CR> 
-nmap <leader>sr :set rnu<CR> 
-
-" Easy filetype setting
+"" Settings
+" Turn off search highlight
+nmap <leader><space> :nohlsearch<CR>
+" Filetype setting
 nmap <leader>sf :set ft=
+
+" Toggles
+" Spell-check
+nmap <leader>ts :set spell!<CR> 
 
 " Copy and Paste
 nmap <leader>V :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-
-vnoremap <leader>a :Align\|<cr>
 
 " Split Navigation
 map <C-h> <C-w>h
