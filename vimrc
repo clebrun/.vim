@@ -1,4 +1,4 @@
-" change <leader> from \ to ,
+" <change <leader> from \ to ,
 let mapleader = ","
 let g:mapleader = ","
 
@@ -28,6 +28,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'garbas/vim-snipmate'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'tpope/vim-rails'
+"Bundle 'Valloric/YouCompleteMe'
 
 " CtrlP
 let g:ctrlp_cmd = 'CtrlPMixed'
@@ -98,12 +99,32 @@ set sidescroll=1
 set statusline=%2*[%n%H%R%W]%*\ %f\ %m%=%1*%y%*%*\ %10((%l,%c)%)
 
 "############################################################################## 
+"
+" #FUNCTIONS#
+" -----------
+
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
+
+inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <c-tab> <c-n>
+
+
+"############################################################################## 
 
 " #KEY MAPPINGS#
 " --------------
 
 " extra escape
-inoremap ,. <esc>
+imap <leader>. <ESC>
+nmap <leader>. <ESC>
+vmap <leader>. <ESC>
 
 " Go to last buffer
 "nmap ,. :b#<CR>
@@ -113,6 +134,10 @@ inoremap ,. <esc>
 nmap <leader>v :source $MYVIMRC<CR>
 " Reformat current paragraph
 nmap <leader>g gqip
+" Default testing mapping
+nmap <leader>tt :! bundle exec rspec<CR>
+" Save
+nmap <leader>w :w<cr>
 
 " Make a separator out of -s that is equal in length to the current line
 map <leader>l yypVr-
@@ -178,9 +203,6 @@ nmap <leader>tud V:s/#DONE//g<CR>
 
 " Build commands, format <leader>r[un](first letter of language)
 nmap <leader>rr :w\|:! ruby %<CR>
-
-" Test Commands
-nmap <leader>tr :w\|:! rspec -c %<CR>
 
 " Destroy Mappings
 " disable arrow keys so you rely on hjkl
