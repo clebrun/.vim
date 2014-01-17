@@ -169,19 +169,23 @@ nmap <leader>ts :set spell!<CR>
 "nmap <leader>V :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 "vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 
-" Split Navigation
+" Navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " j and k navigate absolutely as opposed to navigating linewise
-nmap j gj
-nmap k gk
+nnoremap j gj
+nnoremap k gk
 
 " Next or previous occurrence of SEARCH is centered when jumped to
 nnoremap n nzzzv
 nnoremap N Nzzzv
+
+" J and K go up and down a paragraph
+nnoremap J }
+nnoremap K {
 
 " H and L now do 0 and $
 nnoremap H ^
