@@ -57,7 +57,8 @@ let g:notes_directories = ['~/Documents/Notes']
 syntax enable
 filetype plugin indent on
 
-set nobackup " disable backups
+"set spell " spell-check on by default
+colorscheme zenburn " for new color schemes, download into ~/.vim/colors
 set autoread
 set backspace=2
 set colorcolumn=80 " highlight column 80
@@ -82,10 +83,11 @@ set softtabstop=2
 set t_ut= " Prevent BCE (Background Color Erase)
 set tabstop=2
 set wildmenu " show auto-completion menu
+set fdm=syntax " auto folds from syntax structures
 
 " Filetype specific options
 " use formating options if editing a plain text file
-autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t
+autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t fdm=marker
 
 " Search Options
 set ignorecase " Searches are case insensitive
@@ -107,6 +109,7 @@ set statusline=%2*[%n%H%R%W]%*\ %f\ %m%=%1*%y%*%*\ %10((%l,%c)%)
 " #FUNCTIONS#
 " -----------
 
+" TODO make this play nice with snipmate
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
@@ -150,7 +153,7 @@ map <leader>l yypVr-
 "nmap <leader>p :CtrlPMixed<CR>
 nmap <leader>b :CtrlPBuffer<CR>
 
-"" Edits
+"" Goto
 " vimrc
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
 " snippets folder
@@ -189,6 +192,8 @@ nnoremap N Nzzzv
 " J and K go up and down a paragraph
 nnoremap J }
 nnoremap K {
+" for Join functionality
+nnoremap ,j J
 
 " H and L now do 0 and $
 nnoremap H ^
