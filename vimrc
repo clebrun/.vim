@@ -59,31 +59,29 @@ filetype plugin indent on
 
 set nobackup " disable backups
 set autoread
-set lazyredraw " Performance tweak, don't redraw while executing macros
+set backspace=2
+set colorcolumn=80 " highlight column 80
+set cursorline " horizontal line highlights
+set encoding=utf-8 " show utf-8 chars properly
+set expandtab " don't use tab characters
+set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
+set hidden " make hidden buffers automagically 
 set history=500 " keep up to 50 previous commands
 set laststatus=2 " required for any statusline
-set nocompatible " disable vi compatibility
-set backspace=2
-set sc
-set hidden " make hidden buffers automagically 
-set noswapfile " stop making swapfiles fucking *EVERYWHERE*
-set encoding=utf-8 " show utf-8 chars properly
-set showmode " Not needed when powerline is on
-set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
-"set spell " spell-check on by default
-set wildmenu " show auto-completion menu
-colorscheme zenburn " for new color schemes, download into ~/.vim/colors
-set cursorline " horizontal line highlights
-set expandtab " don't use tab characters
-set smartindent " use vim's context sensitive auto indent
+set lazyredraw " Performance tweak, don't redraw while executing macros
 set listchars=tab:▸\ ,eol:¬ " Pretty unicode characters for whitespace when list is on
+set nobackup " disable backups
+set nocompatible " disable vi compatibility
+set noswapfile " stop making swapfiles fucking *EVERYWHERE*
 set number " show line numbers
-set colorcolumn=80 " highlight column 80
-set t_ut= " Prevent BCE (Background Color Erase)
-" Softtabstob, Tabstop, and Shiftwidth need to be =
-set shiftwidth=2
+set sc
+set shiftwidth=2 " Softtabstob, Tabstop, and Shiftwidth need to be =
+set showmode " Not needed when powerline is on
+set smartindent " use vim's context sensitive auto indent
 set softtabstop=2
+set t_ut= " Prevent BCE (Background Color Erase)
 set tabstop=2
+set wildmenu " show auto-completion menu
 
 " Filetype specific options
 " use formating options if editing a plain text file
