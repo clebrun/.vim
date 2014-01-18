@@ -29,6 +29,8 @@ Bundle 'garbas/vim-snipmate'
 "Bundle 'tpope/vim-fugitive'
 "Bundle 'tpope/vim-rails'
 "Bundle 'Valloric/YouCompleteMe'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-notes'
 
 " TODO figure out how to make ctrlp flush its buffer when needed
 " CtrlP
@@ -43,6 +45,9 @@ let g:ctrlp_working_path_mode = 0
 
 " NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
+
+" Notes
+let g:notes_directories = ['~/Documents/Notes']
 
 "############################################################################## 
 
