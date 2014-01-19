@@ -1,3 +1,45 @@
+" Contents
+
+" PLUGIN CONFIGURATION
+  " Bundles
+  " CtrlP
+  " NerdTree
+  " Notes
+" SETTINGS
+  " Sane should-be-defaults
+  " Appearence
+  " Fix
+  " Files
+  " Whitespace
+  " Search
+  " Scrolling
+  " Autocommands
+" FUNCTIONS
+  " Sane tab behaviour
+" KEY MAPPINGS
+  " extra escape
+  " quick go back
+  " Re-source vimrc
+  " Default testing mapping
+  " vimrc
+  " zshrc
+  " Turn off search highlight
+  " Filetype setting
+  " Copy and Paste
+  " Navigation
+  " j and k navigate absolutely as opposed to navigating linewise
+  " Next or previous occurrence of SEARCH is centered when jumped to
+  " J and K go up and down a paragraph
+  " for Join functionality
+  " H and L now do 0 and $
+  " Don't move when * is invoked, just search
+  " make Y behave like other capitals
+  " Takes a name of a program and generates a hashbang (e.g. #!/usr/bin/bash)
+  " Destroy Mappings
+  " disable arrow keys so you rely on hjkl
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " <change <leader> from \ to ,
 let mapleader = ","
 let g:mapleader = ","
@@ -43,73 +85,83 @@ let g:ctrlp_match_window_reversed = 0
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 
+nmap <leader>b :CtrlPBuffer<CR>
+
+
 " NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
 " Notes
 let g:notes_directories = ['~/Documents/Notes']
-
-"############################################################################## 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " #Settings#
 " ----------
 
+" Sane should-be-defaults
 syntax enable
 filetype plugin indent on
-
-"set spell " spell-check on by default
-colorscheme zenburn " for new color schemes, download into ~/.vim/colors
-set autoread
-set backspace=2
-set colorcolumn=80 " highlight column 80
-set cursorline " horizontal line highlights
-set encoding=utf-8 " show utf-8 chars properly
-set expandtab " don't use tab characters
-set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
-set hidden " make hidden buffers automagically 
-set history=500 " keep up to 50 previous commands
-set laststatus=2 " required for any statusline
-set lazyredraw " Performance tweak, don't redraw while executing macros
-set listchars=tab:▸\ ,eol:¬ " Pretty unicode characters for whitespace when list is on
-set nobackup " disable backups
 set nocompatible " disable vi compatibility
-set noswapfile " stop making swapfiles fucking *EVERYWHERE*
-set number " show line numbers
-set sc
-set shiftwidth=2 " Softtabstob, Tabstop, and Shiftwidth need to be =
-set showmode " Not needed when powerline is on
-set smartindent " use vim's context sensitive auto indent
-set softtabstop=2
-set t_ut= " Prevent BCE (Background Color Erase)
-set tabstop=2
+set backspace=2 " forces vim to use modern backspace behaviour
+set history=500 " keep up to 50 previous commands
+set lazyredraw " Performance tweak, don't redraw while executing macros
 set wildmenu " show auto-completion menu
 set fdm=syntax " auto folds from syntax structures
 
-" Filetype specific options
-" use formating options if editing a plain text file
-autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t fdm=marker
+" Appearence
+colorscheme zenburn " for new color schemes, download into ~/.vim/colors
+set colorcolumn=80 " highlight column 80
+set cursorline " horizontal line highlights
+set laststatus=2 " required for any statusline
+set showmode " show current mode if not in command mode
+set number " show line numbers
+set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
 
-" Search Options
+" Fix
+set t_ut= " Fix BCE (Background Color Erase)
+set encoding=utf-8 " show utf-8 chars properly
+
+" Files
+set noswapfile " stop making swapfiles fucking *EVERYWHERE*
+set hidden " don't make me save or force when switching buffers
+set nobackup " disable backups
+set autoread " if file change is made outside vim, reload file
+
+
+" Whitespace
+set smartindent " use vim's context sensitive auto indent
+set expandtab " use spaces instead of tabs
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2 " Softtabstob, Tabstop, and Shiftwidth need to be =
+set listchars=tab:▸\ ,eol:¬ " Pretty unicode characters for whitespace when list is on
+
+" Search
 set ignorecase " Searches are case insensitive
 set smartcase " unless they contain an uppercase character
 set incsearch " Jumps to search as you search
 set hlsearch " Highlights current search
 
-" Scroll Options
+" Scrolling
 set scrolloff=5
 set sidescrolloff=15
 set sidescroll=1
 
-" Statusline
+" Autocommands
+autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t fdm=marker
+
 " [bufferflags] filename modified? | [fileformat] (row,column)
 set statusline=%2*[%n%H%R%W]%*\ %f\ %m%=%1*%y%*%*\ %10((%l,%c)%)
 
 "############################################################################## 
-"
+
 " #FUNCTIONS#
 " -----------
 
 " TODO make this play nice with snipmate
+
+" Sane tab behaviour. Insert tab if at the beggining of a line, otherwise...
+" use autocompletion.
 function! InsertTabWrapper()
   let col = col('.') - 1
   if !col || getline('.')[col - 1] !~ '\k'
@@ -133,31 +185,18 @@ imap <leader>. <ESC>
 nmap <leader>. <ESC>
 vmap <leader>. <ESC>
 
-" Go to last buffer
-"nmap ,. :b#<CR>
+" quick go back
+nnoremap <leader><leader> ``
 
 "" Operations
-" Re-source
+" Re-source vimrc
 nmap <leader>v :source $MYVIMRC<CR>
-" Reformat current paragraph
-nmap <leader>g gqip
 " Default testing mapping
 nmap <leader>tt :! bundle exec rspec<CR>
-" Save
-nmap <leader>w :w<cr>
-
-" Make a separator out of -s that is equal in length to the current line
-map <leader>l yypVr-
-
-" CtrlP
-"nmap <leader>p :CtrlPMixed<CR>
-nmap <leader>b :CtrlPBuffer<CR>
 
 "" Goto
 " vimrc
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
-" snippets folder
-nmap <leader>os :e ~/.vim/bundle/vim-snippets/snippets<CR> 
 " zshrc
 nmap <leader>oz :e ~/.zshrc<CR> 
 
@@ -167,13 +206,9 @@ nmap <leader><space> :nohlsearch<CR>
 " Filetype setting
 "nmap <leader>sf :set ft=
 
-" Toggles
-" Spell-check
-nmap <leader>ts :set spell!<CR> 
-
 " Copy and Paste
-"nmap <leader>V :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
-"vmap <leader>c y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+nmap <leader>xv :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
+vmap <leader>xc y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
 
 " Navigation
 map <C-h> <C-w>h
@@ -210,13 +245,6 @@ nnoremap Y y$
 " Takes a name of a program and generates a hashbang (e.g. #!/usr/bin/bash)
 map <F2> 0v$hy0D:r! which <C-R>0<CR>I#!<esc>kJ
 
-" Todo commands
-nmap <leader>td A #DONE<esc>
-nmap <leader>tud V:s/#DONE//g<CR>
-
-" Build commands, format <leader>r[un](first letter of language)
-nmap <leader>rr :w\|:! ruby %<CR>
-
 " Destroy Mappings
 " disable arrow keys so you rely on hjkl
 noremap <Up> <NOP>
@@ -227,5 +255,3 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
-
-"############################################################################## 
