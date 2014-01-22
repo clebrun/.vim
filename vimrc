@@ -227,6 +227,9 @@ nnoremap N Nzzzv
 " J and K go up and down a paragraph
 nnoremap J }
 nnoremap K {
+vnoremap J }
+vnoremap K {
+
 " for Join functionality
 nnoremap ,j J
 
