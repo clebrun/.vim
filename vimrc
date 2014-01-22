@@ -1,45 +1,3 @@
-" Contents
-
-" PLUGIN CONFIGURATION
-  " Bundles
-  " CtrlP
-  " NerdTree
-  " Notes
-" SETTINGS
-  " Sane should-be-defaults
-  " Appearence
-  " Fix
-  " Files
-  " Whitespace
-  " Search
-  " Scrolling
-  " Autocommands
-" FUNCTIONS
-  " Sane tab behaviour
-" KEY MAPPINGS
-  " extra escape
-  " quick go back
-  " Re-source vimrc
-  " Default testing mapping
-  " vimrc
-  " zshrc
-  " Turn off search highlight
-  " Filetype setting
-  " Copy and Paste
-  " Navigation
-  " j and k navigate absolutely as opposed to navigating linewise
-  " Next or previous occurrence of SEARCH is centered when jumped to
-  " J and K go up and down a paragraph
-  " for Join functionality
-  " H and L now do 0 and $
-  " Don't move when * is invoked, just search
-  " make Y behave like other capitals
-  " Takes a name of a program and generates a hashbang (e.g. #!/usr/bin/bash)
-  " Destroy Mappings
-  " disable arrow keys so you rely on hjkl
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " <change <leader> from \ to ,
 let mapleader = ","
 let g:mapleader = ","
@@ -64,14 +22,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 " 3 dependencies for snipmate
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'honza/vim-snippets'
-Bundle 'garbas/vim-snipmate'
-"Bundle 'tpope/vim-fugitive'
-"Bundle 'tpope/vim-rails'
-"Bundle 'Valloric/YouCompleteMe'
-Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-misc' " dependency for vim-notes
 Bundle 'xolox/vim-notes'
 
 " TODO figure out how to make ctrlp flush its buffer when needed
@@ -87,13 +38,8 @@ let g:ctrlp_working_path_mode = 0
 
 nmap <leader>b :CtrlPBuffer<CR>
 
-
 " NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
-
-" Notes
-let g:notes_directories = ['~/Documents/Notes']
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " #Settings#
 " ----------
@@ -102,9 +48,6 @@ let g:notes_directories = ['~/Documents/Notes']
 syntax enable
 filetype plugin indent on
 set nocompatible " disable vi compatibility
-set backspace=2 " forces vim to use modern backspace behaviour
-set history=500 " keep up to 50 previous commands
-set lazyredraw " Performance tweak, don't redraw while executing macros
 set wildmenu " show auto-completion menu
 set fdm=syntax " auto folds from syntax structures
 
@@ -126,7 +69,6 @@ set noswapfile " stop making swapfiles fucking *EVERYWHERE*
 set hidden " don't make me save or force when switching buffers
 set nobackup " disable backups
 set autoread " if file change is made outside vim, reload file
-
 
 " Whitespace
 set smartindent " use vim's context sensitive auto indent
@@ -153,13 +95,6 @@ autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t fdm=marke
 " [bufferflags] filename modified? | [fileformat] (row,column)
 set statusline=%2*[%n%H%R%W]%*\ %f\ %m%=%1*%y%*%*\ %10((%l,%c)%)
 
-"############################################################################## 
-
-" #FUNCTIONS#
-" -----------
-
-" TODO make this play nice with snipmate
-
 " Sane tab behaviour. Insert tab if at the beggining of a line, otherwise...
 " use autocompletion.
 function! InsertTabWrapper()
@@ -173,9 +108,6 @@ endfunction
 
 inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <c-tab> <c-n>
-
-
-"############################################################################## 
 
 " #KEY MAPPINGS#
 " --------------
@@ -191,30 +123,17 @@ nnoremap <leader><leader> ``
 "" Operations
 " Re-source vimrc
 nmap <leader>v :source $MYVIMRC<CR>
-" Default testing mapping
-nmap <leader>tt :! bundle exec rspec<CR>
 
-"" Goto
 " vimrc
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
-" zshrc
-nmap <leader>oz :e ~/.zshrc<CR> 
 
 "" Settings
 " Turn off search highlight
 nmap <leader><space> :nohlsearch<CR>
-" Filetype setting
-"nmap <leader>sf :set ft=
 
 " Copy and Paste
 nmap <leader>xv :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 vmap <leader>xc y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
-
-" Navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 " j and k navigate absolutely as opposed to navigating linewise
 nnoremap j gj
