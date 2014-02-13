@@ -1,6 +1,6 @@
-" <change <leader> from \ to ,
-let mapleader = ","
-let g:mapleader = ","
+" <space> as leader
+let mapleader = " "
+let g:mapleader = " "
 
 " ##############################################################################
 " TODO: learn basic vimscript, rewrite pluging configuration to not break vim
@@ -15,34 +15,35 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " Bundles
 Bundle 'gmarik/vundle'
-" maybe just go with a vanilla but pimp statusline?
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'tpope/vim-surround'
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
-" 3 dependencies for snipmate
-Bundle 'xolox/vim-misc' " dependency for vim-notes
+Bundle 'xolox/vim-misc' 
 Bundle 'xolox/vim-notes'
-
-" TODO figure out how to make ctrlp flush its buffer when needed
-" CtrlP
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
-let g:ctrlp_dotfiles = 1
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
-let g:ctrlp_match_window_reversed = 0
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-
-nmap <leader>b :CtrlPBuffer<CR>
+Bundle 'Shougo/unite.vim'
+Bundle 'skalnik/vim-vroom'
 
 " NerdTree
 nmap <leader>n :NERDTreeToggle<CR>
 
+" vim-notes
+let g:notes_directories=['~/Documents/Notes']
+
+" Unite
+let g:unite_source_history_yank_enable = 1
+let g:unite_winheight = 10
+nmap <leader>p :Unite file_rec<CR>
+nmap <leader>b :Unite buffer<CR>
+nmap <leader>y :Unite history/yank<CR>
+
 " #Settings#
 " ----------
+
+" colorscheme
+let g:solarized_termcolors=256 " in case I want to switch to solarized
+colorscheme zenburn
+
+set shell=zsh " use zsh instead of bash
+set mouse=a " enable mouse
 
 " Sane should-be-defaults
 syntax enable
@@ -52,13 +53,12 @@ set wildmenu " show auto-completion menu
 set fdm=syntax " auto folds from syntax structures
 
 " Appearence
-colorscheme zenburn " for new color schemes, download into ~/.vim/colors
 set colorcolumn=80 " highlight column 80
 set cursorline " horizontal line highlights
 set laststatus=2 " required for any statusline
 set showmode " show current mode if not in command mode
-set number " show line numbers
 set guifont=Monospace\ 11 " try :set guifont=* for a graphical menu
+set t_Co=256
 
 " Fix
 set t_ut= " Fix BCE (Background Color Erase)
@@ -90,7 +90,15 @@ set sidescrolloff=15
 set sidescroll=1
 
 " Autocommands
+" set formating/folding options when in a txt file
 autocmd BufRead,BufNewFile *.txt setlocal textwidth=80 formatoptions=t fdm=marker
+
+" put cursor in last position unless its invalid or in an event handler
+autocmd Bufreadpost *
+      \ if line("'\'") > 0 && line("'\'") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
+
 
 " [bufferflags] filename modified? | [fileformat] (row,column)
 set statusline=%2*[%n%H%R%W]%*\ %f\ %m%=%1*%y%*%*\ %10((%l,%c)%)
@@ -113,27 +121,45 @@ inoremap <c-tab> <c-n>
 " --------------
 
 " extra escape
-imap <leader>. <ESC>
-nmap <leader>. <ESC>
-vmap <leader>. <ESC>
+"imap <leader>. <ESC>
+"nmap <leader>. <ESC>
+"vmap <leader>. <ESC>
 
-" quick go back
-nnoremap <leader><leader> ``
+" kill buffer without killing split
+nnoremap <C-c> :bp\|bd #<CR>
 
-"" Operations
-" Re-source vimrc
-nmap <leader>v :source $MYVIMRC<CR>
+" quick write
+nnoremap <leader><leader> :w<CR>
 
-" vimrc
+" quick save sessions
+nnoremap <leader>sh :mks! .session.vim<cr>
+nnoremap <leader>ss :mks! ~/.vim/sessions/last.vim<cr>
+
+" quick switch
+nnoremap <leader>. :b#<CR>
+
+" filesearch using :e
+nmap <leader>e :e **/
+
+" goto vimrc
 nmap <leader>ov :e ~/.vim/vimrc<CR> 
 
 "" Settings
-" Turn off search highlight
-nmap <leader><space> :nohlsearch<CR>
+set guioptions-=l
+set guioptions-=L
+set guioptions-=r
+set guioptions-=R
+set guioptions-=T
+
+"" Mappings
 
 " Copy and Paste
 nmap <leader>xv :call setreg("\"",system("xclip -o -selection clipboard"))<CR>p
 vmap <leader>xc y:call system("xclip -i -selection clipboard", getreg("\""))<CR>:call system("xclip -i", getreg("\""))<CR>
+
+" remap , to the split handling prefix. DEF KEEPING THIS OMG
+nnoremap <silent> , <C-w>
+vnoremap <silent> , <C-w>
 
 " j and k navigate absolutely as opposed to navigating linewise
 nnoremap j gj
@@ -144,19 +170,23 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " J and K go up and down a paragraph
-nnoremap J }
-nnoremap K {
-vnoremap J }
-vnoremap K {
+nnoremap J 8j
+nnoremap K 8k
+vnoremap J 8j
+vnoremap K 8k
 
 " for Join functionality
-nnoremap ,j J
+nnoremap <leader>j J
 
 " H and L now do 0 and $
 nnoremap H ^
 vnoremap H ^
 nnoremap L g_
 vnoremap L g_
+
+" for regular H and L functionality
+nnoremap <leader>H H
+nnoremap <leader>L L
 
 " Don't move when * is invoked, just search
 nnoremap * *<c-o>
@@ -166,6 +196,12 @@ nnoremap Y y$
 
 " Takes a name of a program and generates a hashbang (e.g. #!/usr/bin/bash)
 map <F2> 0v$hy0D:r! which <C-R>0<CR>I#!<esc>kJ
+
+" set capslock to be a second escape on linux
+map <F3> :! setxkbmap -option caps:escape<CR>
+
+" Insert Date/Time stamp
+nmap <F4> :r! date '+%Y-%m-%d %H%M'<CR>
 
 " Destroy Mappings
 " disable arrow keys so you rely on hjkl
