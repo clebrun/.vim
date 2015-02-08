@@ -114,9 +114,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" reset syntastic error messages and turn off highlighting
-nnoremap <leader><space> :SyntasticReset<CR>
-
 " Eval whole file (clojure, vim-fireplace)
 nnoremap <leader>E :%Eval<CR>
 
