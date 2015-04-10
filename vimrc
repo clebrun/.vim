@@ -124,3 +124,7 @@ nnoremap <leader>th gT
 nnoremap <leader>tl gt
 nnoremap <leader>tH :tabm -1<CR>
 nnoremap <leader>tL :tabm +1<CR>
+
+" Syntastic
+nnoremap <leader>se :Errors<CR>
+nnoremap <leader>sr :SyntasticReset<CR>
