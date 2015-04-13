@@ -72,6 +72,9 @@ nnoremap k gk
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
+" Y yanks to end of line like other capitals
+map Y y$
+
 nnoremap H ^
 vnoremap H ^
 
