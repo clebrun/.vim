@@ -11,26 +11,34 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 
-" Plugins
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
-Plugin 'guns/vim-clojure-static'
-Plugin 'honza/vim-snippets'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'scrooloose/nerdtree'
+"" Plugins Groups
+" Default
 Plugin 'scrooloose/syntastic'
-Plugin 'skalnik/vim-vroom'
-Plugin 'tomtom/tlib_vim'
-Plugin 'tpope/vim-classpath'
-Plugin 'tpope/vim-cucumber'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-fireplace'
-Plugin 'tpope/vim-leiningen'
 Plugin 'tpope/vim-surround'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'xolox/vim-misc'
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'honza/vim-snippets'
+Plugin 'garbas/vim-snipmate'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+
+" Colorschemes
 Plugin 'endel/vim-github-colorscheme'
 Plugin 'Lokaltog/vim-distinguished'
+
+" Clojure
+"Plugin 'guns/vim-clojure-static'
+"Plugin 'tpope/vim-classpath'
+"Plugin 'tpope/vim-fireplace'
+"Plugin 'tpope/vim-leiningen'
+"Plugin 'kien/rainbow_parentheses.vim'
+
+" Misc
+"Plugin 'tomtom/tlib_vim'
+"Plugin 'skalnik/vim-vroom'
+"Plugin 'tpope/vim-cucumber'
+"Plugin 'tpope/vim-dispatch'
+
 call vundle#end()
 
 " alternate leader key: , instead of \
