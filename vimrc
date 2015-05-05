@@ -26,6 +26,8 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'endel/vim-github-colorscheme'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
+Plugin 'sickill/vim-monokai'
 
 " Clojure
 "Plugin 'guns/vim-clojure-static'
