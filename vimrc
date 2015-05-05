@@ -70,6 +70,7 @@ set autoread
 set ignorecase
 set smartcase
 set incsearch
+set hlsearch
 " indentation rules
 set smartindent " Auto indent
 set expandtab " use spaces as tabs
