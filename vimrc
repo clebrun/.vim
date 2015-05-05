@@ -18,9 +18,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
+
+" Snippets
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
 Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
 
 " Colorschemes
 Plugin 'endel/vim-github-colorscheme'
