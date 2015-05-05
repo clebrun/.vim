@@ -25,6 +25,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 " Colorschemes
 Plugin 'endel/vim-github-colorscheme'
 Plugin 'Lokaltog/vim-distinguished'
+Plugin 'morhetz/gruvbox'
 
 " Clojure
 "Plugin 'guns/vim-clojure-static'
@@ -50,7 +51,10 @@ set scrolloff=8
 set number
 set relativenumber
 set shell=zsh
-colorscheme distinguished
+
+set background=dark " to get dark gruvbox
+colorscheme gruvbox
+set t_Co=256
 
 syntax enable
 filetype plugin indent on
