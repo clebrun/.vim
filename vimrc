@@ -56,6 +56,7 @@ set scrolloff=8
 set number
 set relativenumber
 set shell=zsh
+set colorcolumn=80
 
 set background=dark " to get dark gruvbox
 colorscheme gruvbox
