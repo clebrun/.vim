@@ -52,7 +52,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Settings
-set scrolloff=8
+set scrolloff=4
 set number
 set relativenumber
 set shell=zsh
