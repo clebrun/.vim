@@ -104,6 +104,9 @@ map Y y$
 " this helps with split navigation
 nnoremap <leader>w <c-w>
 
+" turn off search highlighting
+nnoremap <leader><space> :nohlsearch<CR>
+
 " code completion in insert mode
 inoremap <leader><leader> <C-n>
 inoremap <leader>. <C-p>
