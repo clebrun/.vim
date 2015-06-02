@@ -96,11 +96,11 @@ nnoremap N Nzzzv
 map Y y$
 
 " Remap H and L to go to the beginning and end of the line  
-"nnoremap H ^
-"vnoremap H ^
-"
-"nnoremap L g_
-"vnoremap L g_
+nnoremap H ^
+vnoremap H ^
+
+nnoremap L g_
+vnoremap L g_
 
 " this helps with split navigation
 nnoremap <leader>w <c-w>
