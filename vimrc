@@ -18,6 +18,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'xolox/vim-misc'
 Plugin 'scrooloose/nerdtree'
+Plugin 'terryma/vim-expand-region'
 
 " Snippets
 Plugin 'honza/vim-snippets'
@@ -141,7 +142,11 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Eval whole file (clojure, vim-fireplace)
-nnoremap <leader>E :%Eval<CR>
+"nnoremap <leader>E :%Eval<CR>
+
+" Expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
 
 "tabs 
 nnoremap <leader>tn :tabnew<CR>
