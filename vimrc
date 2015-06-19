@@ -45,6 +45,7 @@ Plugin 'sickill/vim-monokai'
 "Plugin 'skalnik/vim-vroom'
 "Plugin 'tpope/vim-cucumber'
 "Plugin 'tpope/vim-dispatch'
+"Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
@@ -121,6 +122,7 @@ nnoremap <leader>ts :tabnew ~/.vim/bundle/vim-snippets/snippets<CR>
 " NERDtree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
+
 " Ruby
 nnoremap <leader>r :! ruby %<CR>
 
@@ -157,5 +159,6 @@ nnoremap <leader>tH :tabm -1<CR>
 nnoremap <leader>tL :tabm +1<CR>
 
 " Syntastic
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 nnoremap <leader>se :Errors<CR>
 nnoremap <leader>sr :SyntasticReset<CR>
