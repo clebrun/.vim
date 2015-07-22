@@ -45,7 +45,7 @@ Plugin 'sickill/vim-monokai'
 "Plugin 'skalnik/vim-vroom'
 "Plugin 'tpope/vim-cucumber'
 "Plugin 'tpope/vim-dispatch'
-"Plugin 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
@@ -127,8 +127,11 @@ nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>r :! ruby %<CR>
 
 " Pry
-nnoremap <leader>p :! pry<CR>
-nnoremap <leader>P :! pry -r %<CR>
+"nnoremap <leader>p :! pry<CR>
+"nnoremap <leader>P :! pry -r %<CR>
+
+" Ctrl-P
+nnoremap <leader>p :CtrlPMixed<CR>
 
 " go into haskell repl with current file loaded
 nnoremap <leader>g :! ghci %<CR>
