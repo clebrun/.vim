@@ -61,7 +61,7 @@ set shell=zsh
 set colorcolumn=80
 
 set background=dark " to get dark gruvbox
-colorscheme gruvbox
+colorscheme hybrid
 set t_Co=256
 
 syntax enable
