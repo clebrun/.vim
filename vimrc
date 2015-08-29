@@ -46,6 +46,7 @@ Plugin 'sickill/vim-monokai'
 "Plugin 'tpope/vim-cucumber'
 "Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 
@@ -111,6 +112,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Use ,, as esc
 inoremap <leader><leader> <ESC>
+nnoremap <leader><leader> <ESC>
+vnoremap <leader><leader> <ESC>
 
 " code completion in insert mode
 inoremap <leader>. <C-n>
