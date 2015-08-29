@@ -109,9 +109,11 @@ nnoremap <leader>w <c-w>
 " turn off search highlighting
 nnoremap <leader><space> :nohlsearch<CR>
 
+" Use ,, as esc
+inoremap <leader><leader> <ESC>
+
 " code completion in insert mode
-inoremap <leader><leader> <C-n>
-inoremap <leader>. <C-p>
+inoremap <leader>. <C-n>
 
 " tabs
 nnoremap <leader>tn :tabnew<CR>
