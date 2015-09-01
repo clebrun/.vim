@@ -62,7 +62,7 @@ set shell=zsh
 set colorcolumn=80
 
 set background=dark " to get dark gruvbox
-colorscheme hybrid
+colorscheme zenburn
 set t_Co=256
 
 syntax enable
@@ -111,12 +111,12 @@ nnoremap <leader>w <c-w>
 nnoremap <leader><space> :nohlsearch<CR>
 
 " Use ,, as esc
-inoremap <leader><leader> <ESC>
-nnoremap <leader><leader> <ESC>
-vnoremap <leader><leader> <ESC>
+inoremap <leader>. <ESC>
+nnoremap <leader>. <ESC>
+vnoremap <leader>. <ESC>
 
 " code completion in insert mode
-inoremap <leader>. <C-n>
+inoremap <leader><leader> <C-n>
 
 " tabs
 nnoremap <leader>tn :tabnew<CR>
