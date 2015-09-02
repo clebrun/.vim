@@ -117,7 +117,7 @@ nnoremap <leader>. <ESC>
 vnoremap <leader>. <ESC>
 
 " code completion in insert mode
-inoremap <leader><leader> <C-n>
+inoremap <leader><leader> <C-p>
 
 " tabs
 nnoremap <leader>tn :tabnew<CR>
