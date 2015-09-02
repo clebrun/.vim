@@ -67,6 +67,7 @@ set t_Co=256
 
 syntax enable
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 set nocompatible
 set wildmenu
 set showmode
