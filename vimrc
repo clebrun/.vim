@@ -33,6 +33,10 @@ Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'sickill/vim-monokai'
 
+" Ruby
+"Plugin 'ngmy/vim-rubocop'
+"Plugin 'tpope/vim-cucumber'
+
 " Clojure
 "Plugin 'guns/vim-clojure-static'
 "Plugin 'tpope/vim-classpath'
@@ -43,10 +47,8 @@ Plugin 'sickill/vim-monokai'
 " Misc
 "Plugin 'tomtom/tlib_vim'
 "Plugin 'skalnik/vim-vroom'
-"Plugin 'tpope/vim-cucumber'
 "Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
-Plugin 'ngmy/vim-rubocop'
 
 call vundle#end()
 
