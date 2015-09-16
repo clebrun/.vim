@@ -61,7 +61,7 @@ set scrolloff=4
 set number
 set relativenumber
 set shell=zsh
-set colorcolumn=80
+set colorcolumn=81
 
 set background=dark " to get dark gruvbox
 colorscheme zenburn
