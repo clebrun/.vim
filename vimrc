@@ -157,6 +157,9 @@ nmap ga <Plug>(EasyAlign)
 " Eval whole file (clojure, vim-fireplace)
 "nnoremap <leader>E :%Eval<CR>
 
+" Quick magic search
+nnoremap <leader>/ /\v
+
 " Expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
