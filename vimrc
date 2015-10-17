@@ -32,6 +32,7 @@ Plugin 'Lokaltog/vim-distinguished'
 Plugin 'morhetz/gruvbox'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'sickill/vim-monokai'
+Plugin 'sjl/badwolf'
 
 " Ruby
 "Plugin 'ngmy/vim-rubocop'
