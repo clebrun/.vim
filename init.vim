@@ -77,6 +77,11 @@ set clipboard=unnamedplus
 " COLORSCHEME
 colorscheme hybrid_material
 set t_Co=256
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
 syntax enable
 filetype plugin indent on
