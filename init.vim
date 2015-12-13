@@ -39,6 +39,7 @@ Plugin 'vim-ruby/vim-ruby'
 " Ruby
 Plugin 'ngmy/vim-rubocop'
 "Plugin 'tpope/vim-cucumber'
+Plugin 'skalnik/vim-vroom'
 
 " Clojure
 "Plugin 'guns/vim-clojure-static'
@@ -49,7 +50,6 @@ Plugin 'ngmy/vim-rubocop'
 
 " Misc
 "Plugin 'tomtom/tlib_vim'
-"Plugin 'skalnik/vim-vroom'
 "Plugin 'tpope/vim-dispatch'
 Plugin 'kien/ctrlp.vim'
 
@@ -132,6 +132,9 @@ vnoremap <leader>. <ESC>
 " code completion in insert mode
 inoremap <leader><leader> <C-p>
 
+" force vim-vroom mapping
+nnoremap <leader>r :VroomRunTestFile<CR>
+
 " tabs
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
@@ -141,9 +144,6 @@ nnoremap <leader>ts :tabnew ~/.vim/bundle/vim-snippets/snippets<CR>
 " NERDtree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-
-" Ruby
-nnoremap <leader>r :RuboCop<CR>
 
 " Pry
 "nnoremap <leader>p :! pry<CR>
@@ -157,7 +157,7 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>g :! ghci %<CR>
 
 " source vimrc
-nnoremap <leader>R :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>v :source ~/.config/nvim/init.vim<CR>
 
 " Easy Align Mappings
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
