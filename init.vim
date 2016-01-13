@@ -51,6 +51,7 @@ Plugin 'skalnik/vim-vroom'
 " Misc
 "Plugin 'tomtom/tlib_vim'
 "Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 
 Plugin 'mattn/gist-vim'
@@ -188,6 +189,10 @@ nnoremap <leader>th gT
 nnoremap <leader>tl gt
 nnoremap <leader>tH :tabm -1<CR>
 nnoremap <leader>tL :tabm +1<CR>
+
+" Fugitive bindings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
 
 " Syntastic
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
