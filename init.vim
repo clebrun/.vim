@@ -74,7 +74,7 @@ let g:mapleader = ","
 
 " Gist plugin settings
 let g:gist_post_anonymous = 1
-vnoremap <leader>g :Gist -a -b<CR>
+vnoremap <leader>G :Gist -a -b<CR>
 
 " vim-hardtime settings
 " default on
