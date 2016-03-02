@@ -51,7 +51,7 @@ Plugin 'skalnik/vim-vroom'
 
 " Misc
 "Plugin 'tomtom/tlib_vim'
-"Plugin 'tpope/vim-dispatch'
+" Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 
