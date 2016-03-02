@@ -55,8 +55,11 @@ Plugin 'skalnik/vim-vroom'
 
 " Misc
 "Plugin 'tomtom/tlib_vim'
+" fuzzy file search
 Plugin 'kien/ctrlp.vim'
+" easy gisting, easy life
 Plugin 'mattn/gist-vim'
+" gist-vim depends on:
 Plugin 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><leader>
 Plugin 'easymotion/vim-easymotion'
@@ -115,6 +118,7 @@ set shiftwidth=2
 nnoremap j gj
 nnoremap k gk
 
+" center search matches
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -124,11 +128,10 @@ map Y y$
 " Remap H and L to go to the beginning and end of the line  
 nnoremap H ^
 vnoremap H ^
-
 nnoremap L g_
 vnoremap L g_
 
-" this helps with split navigation
+" melody option for split navigation
 nnoremap <leader>w <c-w>
 
 " turn off search highlighting
