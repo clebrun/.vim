@@ -36,6 +36,9 @@ Plugin 'sjl/badwolf'
 Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-ruby/vim-ruby'
 
+" Git
+Plugin 'tpope/vim-fugitive'
+
 " Ruby
 Plugin 'ngmy/vim-rubocop'
 "Plugin 'tpope/vim-cucumber'
@@ -51,8 +54,6 @@ Plugin 'skalnik/vim-vroom'
 
 " Misc
 "Plugin 'tomtom/tlib_vim'
-" Git
-Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
