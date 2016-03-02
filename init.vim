@@ -1,72 +1,67 @@
-" Vundle plugin manager boilerplate
-" BEGIN
+" vim-plug plugin manager boilerplate
 set nocompatible              " be iMproved, required
-filetype off                  " required
+"filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.config/nvim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-
-"" Plugins Groups
+"" Plugs Groups
 " Default
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'xolox/vim-misc'
-Plugin 'scrooloose/nerdtree'
-Plugin 'terryma/vim-expand-region'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
+Plug 'xolox/vim-misc'
+Plug 'scrooloose/nerdtree'
+Plug 'terryma/vim-expand-region'
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Snippets
-Plugin 'honza/vim-snippets'
-Plugin 'garbas/vim-snipmate'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
+Plug 'honza/vim-snippets'
+Plug 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 
 " Colorschemes
-Plugin 'endel/vim-github-colorscheme'
-Plugin 'Lokaltog/vim-distinguished'
-Plugin 'morhetz/gruvbox'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'sickill/vim-monokai'
-Plugin 'sjl/badwolf'
-Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'endel/vim-github-colorscheme'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
+Plug 'sickill/vim-monokai'
+Plug 'sjl/badwolf'
+Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'vim-ruby/vim-ruby'
 
 " Git
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 
 " Ruby
-Plugin 'ngmy/vim-rubocop'
-"Plugin 'tpope/vim-cucumber'
-Plugin 'skalnik/vim-vroom'
+Plug 'ngmy/vim-rubocop'
+"Plug 'tpope/vim-cucumber'
+Plug 'skalnik/vim-vroom'
 
 " Clojure
-"Plugin 'guns/vim-clojure-static'
-"Plugin 'tpope/vim-classpath'
-"Plugin 'tpope/vim-fireplace'
-"Plugin 'tpope/vim-leiningen'
-"Plugin 'neovim/node-host'
-"Plugin 'snoe/nvim-parinfer.js'
+"Plug 'guns/vim-clojure-static'
+"Plug 'tpope/vim-classpath'
+"Plug 'tpope/vim-fireplace'
+"Plug 'tpope/vim-leiningen'
+"Plug 'neovim/node-host'
+"Plug 'snoe/nvim-parinfer.js'
 
 " Misc
-"Plugin 'tomtom/tlib_vim'
+"Plug 'tomtom/tlib_vim'
 " fuzzy file search
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " easy gisting, easy life
-Plugin 'mattn/gist-vim'
+Plug 'mattn/gist-vim'
 " gist-vim depends on:
-Plugin 'mattn/webapi-vim'
+Plug 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><leader>
-Plugin 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 " Give me a hard time for using hjkl repeatedly
-Plugin 'takac/vim-hardtime'
+Plug 'takac/vim-hardtime'
 
-call vundle#end()
+call plug#end()
 
 " alternate leader key: , instead of \
 let mapleader = ","
@@ -89,6 +84,7 @@ set relativenumber
 set shell=zsh
 set colorcolumn=81
 set clipboard=unnamedplus
+set listchars=tab:▸\ ,eol:¬
 
 " COLORSCHEME
 colorscheme hybrid_material
@@ -159,7 +155,7 @@ nnoremap <leader>r :VroomRunTestFile<CR>
 nnoremap <leader>tc :tabnew<CR>
 nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>tv :tabnew ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ts :tabnew ~/.vim/bundle/vim-snippets/snippets<CR>
+nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
 
 " NERDtree
 nnoremap <leader>n :NERDTreeToggle<CR>
