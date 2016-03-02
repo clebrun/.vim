@@ -63,6 +63,8 @@ Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><leader>
 Plugin 'easymotion/vim-easymotion'
+" Give me a hard time for using hjkl repeatedly
+Plugin 'takac/vim-hardtime'
 
 call vundle#end()
 
@@ -73,6 +75,12 @@ let g:mapleader = ","
 " Gist plugin settings
 let g:gist_post_anonymous = 1
 vnoremap <leader>g :Gist -a -b<CR>
+
+" vim-hardtime settings
+" default on
+let g:hardtime_default_on = 1
+" set timeout length
+let g:hardtime_timeout = 100
 
 " Settings
 set scrolloff=4
