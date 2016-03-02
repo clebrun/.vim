@@ -37,6 +37,7 @@ Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'vim-ruby/vim-ruby'
 
 " Git
+Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
 " Ruby
