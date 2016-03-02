@@ -144,8 +144,8 @@ inoremap <leader><leader> <C-p>
 nnoremap <leader>r :VroomRunTestFile<CR>
 
 " tabs
-nnoremap <leader>tn :tabnew<CR>
-nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tc :tabnew<CR>
+nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>tv :tabnew ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ts :tabnew ~/.vim/bundle/vim-snippets/snippets<CR>
 
