@@ -46,7 +46,8 @@ Plugin 'skalnik/vim-vroom'
 "Plugin 'tpope/vim-classpath'
 "Plugin 'tpope/vim-fireplace'
 "Plugin 'tpope/vim-leiningen'
-"Plugin 'kien/rainbow_parentheses.vim'
+"Plugin 'neovim/node-host'
+"Plugin 'snoe/nvim-parinfer.js'
 
 " Misc
 "Plugin 'tomtom/tlib_vim'
