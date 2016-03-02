@@ -54,9 +54,10 @@ Plugin 'skalnik/vim-vroom'
 " Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
-
 Plugin 'mattn/gist-vim'
 Plugin 'mattn/webapi-vim'
+" move around a file easier, mapped to <leader><leader>
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 
@@ -194,6 +195,9 @@ nnoremap <leader>tL :tabm +1<CR>
 " Fugitive bindings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
+
+" 
+nmap <space> <Plug>(easymotion-bd-f)
 
 " Syntastic
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
