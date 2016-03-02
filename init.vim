@@ -192,14 +192,6 @@ nnoremap <leader>/ /\v
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-"tabs 
-nnoremap <leader>tn :tabnew<CR>
-nnoremap <leader>tc :tabc<CR>
-nnoremap <leader>th gT
-nnoremap <leader>tl gt
-nnoremap <leader>tH :tabm -1<CR>
-nnoremap <leader>tL :tabm +1<CR>
-
 " Fugitive bindings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
