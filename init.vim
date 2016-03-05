@@ -39,6 +39,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'ngmy/vim-rubocop'
 "Plug 'tpope/vim-cucumber'
 Plug 'skalnik/vim-vroom'
+Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 
 " Clojure
 "Plug 'guns/vim-clojure-static'
@@ -62,6 +63,8 @@ Plug 'easymotion/vim-easymotion'
 Plug 'takac/vim-hardtime'
 
 call plug#end()
+
+runtime macros/matchit.vim
 
 " map common ex-command typos to their intended commands
 command! Q q
