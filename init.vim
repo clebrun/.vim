@@ -91,7 +91,7 @@ set relativenumber
 set shell=zsh
 set colorcolumn=81
 set clipboard=unnamedplus
-set listchars=tab:▸\ ,eol:¬
+set list listchars=tab:▸\ ,eol:¬
 
 " COLORSCHEME
 colorscheme hybrid_material
