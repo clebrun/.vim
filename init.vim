@@ -63,6 +63,13 @@ Plug 'takac/vim-hardtime'
 
 call plug#end()
 
+" map common ex-command typos to their intended commands
+command! Q q
+command! W w
+
+" Execute macro in q
+map Q @q
+
 " alternate leader key: , instead of \
 let mapleader = ","
 let g:mapleader = ","
