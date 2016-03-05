@@ -152,8 +152,8 @@ inoremap <leader>. <ESC>
 nnoremap <leader>. <ESC>
 vnoremap <leader>. <ESC>
 
-" code completion in insert mode
-inoremap <leader><leader> <C-p>
+" quick write
+nnoremap <leader><leader> :w<CR>
 
 " force vim-vroom mapping
 nnoremap <leader>r :VroomRunTestFile<CR>
