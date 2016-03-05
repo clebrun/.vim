@@ -167,7 +167,6 @@ nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
 " NERDtree
 nnoremap <leader>n :NERDTreeToggle<CR>
 
-
 " Pry
 "nnoremap <leader>p :! pry<CR>
 "nnoremap <leader>P :! pry -r %<CR>
@@ -203,7 +202,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 
-" 
+" <space><char> opens bi-directional easymotion character match
 nmap <space> <Plug>(easymotion-bd-f)
 
 " Syntastic
