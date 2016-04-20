@@ -92,9 +92,9 @@ let g:ctrlp_max_files=0
 
 " vim-hardtime settings
 " default on
-let g:hardtime_default_on = 1
+"let g:hardtime_default_on = 1
 " set timeout length
-let g:hardtime_timeout = 100
+"let g:hardtime_timeout = 100
 
 " Settings
 set scrolloff=4
