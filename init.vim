@@ -87,6 +87,9 @@ let g:mapleader = ","
 let g:gist_post_anonymous = 1
 vnoremap <leader>G :Gist -a -b<CR>
 
+" stops CtrlP from limiting number of indexed files
+let g:ctrlp_max_files=0
+
 " vim-hardtime settings
 " default on
 let g:hardtime_default_on = 1
