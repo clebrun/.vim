@@ -128,6 +128,7 @@ set noswapfile
 set hidden
 set nobackup
 set autoread
+set ttyfast
 " Search
 set ignorecase
 set smartcase
