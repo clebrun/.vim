@@ -161,15 +161,14 @@ vnoremap L g_
 nnoremap <leader>w <c-w>
 
 " turn off search highlighting
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Use ,, as esc
-inoremap <leader>. <ESC>
-nnoremap <leader>. <ESC>
-vnoremap <leader>. <ESC>
+nnoremap <leader><BS> :nohlsearch<CR>
 
 " quick write
-nnoremap <leader><leader> :w<CR>
+nmap <leader><leader> :w<CR>
+
+" alternate tilda in normal mode
+nnoremap <leader>. ``
+vnoremap <leader>. ``
 
 " force vim-vroom mapping
 nnoremap <leader>r :VroomRunTestFile<CR>
@@ -220,14 +219,22 @@ nnoremap <leader>gd :Gdiff<CR>
 
 " <space><char> opens bi-directional easymotion character match
 nmap <space> <Plug>(easymotion-bd-f)
+vmap <space> <Plug>(easymotion-bd-f)
 
 " Syntastic
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 nnoremap <leader>se :Errors<CR>
 nnoremap <leader>sr :SyntasticReset<CR>
 
+" Terminal shortcuts
+tnoremap <leader>e <C-\><C-n>
+
+" quick regex search & replace
+nnoremap <leader>S :%s/\v/g<LEFT><LEFT>
+vnoremap <leader>S :s/\v/g<LEFT><LEFT>
+
 " EXPERIMENTAL, DO NOT COMMIT
 set ttimeoutlen=-1
 
-" Terminal shortcuts
-tnoremap <leader>e <C-\><C-n>
+" set ,; to be last ex-command
+nnoremap <leader>; :<UP>
