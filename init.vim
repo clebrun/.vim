@@ -63,7 +63,10 @@ Plug 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><leader>
 Plug 'easymotion/vim-easymotion'
 " Give me a hard time for using hjkl repeatedly
-Plug 'takac/vim-hardtime'
+"Plug 'takac/vim-hardtime'
+" For now doesn't work with neovim.
+Plug 'jceb/vim-orgmode'
+Plug 'tpope/vim-speeddating'
 
 call plug#end()
 
