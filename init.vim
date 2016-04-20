@@ -55,7 +55,7 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 " Misc
 "Plug 'tomtom/tlib_vim'
 " fuzzy file search
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 " easy gisting, easy life
 Plug 'mattn/gist-vim'
 " gist-vim depends on:
