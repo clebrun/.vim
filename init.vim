@@ -50,6 +50,7 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 "Plug 'tpope/vim-leiningen'
 "Plug 'neovim/node-host'
 "Plug 'snoe/nvim-parinfer.js'
+"Plug 'vim-scripts/paredit.vim'
 
 " Misc
 "Plug 'tomtom/tlib_vim'
