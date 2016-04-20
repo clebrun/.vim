@@ -30,6 +30,8 @@ Plug 'sickill/vim-monokai'
 Plug 'sjl/badwolf'
 Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'vim-ruby/vim-ruby'
+Plug 'AlessandroYorba/Alduin'
+Plug 'mswift42/vim-themes'
 
 " Git
 Plug 'airblade/vim-gitgutter'
