@@ -2,7 +2,11 @@
 set nocompatible              " be iMproved, required
 "filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" If you have a new install, try this command: 
+" curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+" https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+" Begin plugin section
 call plug#begin('~/.config/nvim/plugged')
 
 "" Plugs Groups
