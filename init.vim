@@ -19,7 +19,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-expand-region'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-commentary'
-
+Plug 'sjl/gundo.vim'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -95,6 +95,9 @@ vnoremap <leader>G :Gist -a -b<CR>
 
 " stops CtrlP from limiting number of indexed files
 let g:ctrlp_max_files=0
+
+" Gundo plugin settings
+nnoremap <leader>u :GundoToggle<CR>
 
 " vim-hardtime settings
 " default on
