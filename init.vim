@@ -18,6 +18,8 @@ Plug 'xolox/vim-misc'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-expand-region'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'tpope/vim-commentary'
+
 
 " Snippets
 Plug 'honza/vim-snippets'
