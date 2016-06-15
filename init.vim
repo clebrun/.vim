@@ -117,6 +117,8 @@ colorscheme hybrid_material
 set background=dark
 "colorscheme alduin
 "let g:alduin_Shout_Become_Ethereal = 1
+" v- gets rid of | in split gutters
+set fillchars+=vert:\ 
 set t_Co=256
 augroup CursorLineOnlyInActiveWindow
   autocmd!
