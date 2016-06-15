@@ -112,8 +112,9 @@ set clipboard=unnamedplus
 set list listchars=tab:▸\ ,eol:¬
 
 " COLORSCHEME
-colorscheme zenburn
-"colorscheme hybrid_material
+"colorscheme zenburn
+colorscheme hybrid_material
+set background=dark
 "colorscheme alduin
 "let g:alduin_Shout_Become_Ethereal = 1
 set t_Co=256
