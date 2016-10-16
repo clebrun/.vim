@@ -66,7 +66,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mattn/gist-vim'
 " gist-vim depends on:
 Plug 'mattn/webapi-vim'
-" move around a file easier, mapped to <leader><leader>
+" move around a file easier, mapped to <leader><space>
 Plug 'easymotion/vim-easymotion'
 " Give me a hard time for using hjkl repeatedly
 "Plug 'takac/vim-hardtime'
