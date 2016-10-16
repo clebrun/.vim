@@ -91,6 +91,9 @@ map Q @q
 let mapleader = ","
 let g:mapleader = ","
 
+" quick save mapping
+nnoremap <leader><leader> :w<CR>
+
 " Gist plugin settings
 let g:gist_post_anonymous = 1
 vnoremap <leader>G :Gist -a -b<CR>
