@@ -73,6 +73,8 @@ Plug 'easymotion/vim-easymotion'
 " For now doesn't work with neovim.
 Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
+" Live markdown preview, requires livedown npm package
+Plug 'shime/vim-livedown'
 
 call plug#end()
 
