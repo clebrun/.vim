@@ -75,6 +75,7 @@ Plug 'jceb/vim-orgmode'
 Plug 'tpope/vim-speeddating'
 " Live markdown preview, requires livedown npm package
 Plug 'shime/vim-livedown'
+Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
