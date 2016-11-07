@@ -113,8 +113,8 @@ nnoremap <leader>u :GundoToggle<CR>
 
 " Settings
 set scrolloff=4
+set ruler
 set number
-set relativenumber
 set shell=zsh
 set colorcolumn=81
 set clipboard=unnamedplus
