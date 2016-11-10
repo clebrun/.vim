@@ -6,7 +6,10 @@ set nocompatible              " be iMproved, required
 " curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
 " https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-" Begin plugin section
+"---------------------
+" BEGIN PLUGIN SECTION
+"---------------------
+
 call plug#begin('~/.config/nvim/plugged')
 
 "" Plugs Groups
@@ -63,9 +66,7 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 " fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 " easy gisting, easy life
-Plug 'mattn/gist-vim'
-" gist-vim depends on:
-Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><space>
 Plug 'easymotion/vim-easymotion'
 " Give me a hard time for using hjkl repeatedly
@@ -81,19 +82,7 @@ call plug#end()
 
 runtime macros/matchit.vim
 
-" map common ex-command typos to their intended commands
-command! Q q
-command! W w
-
-" Execute macro in q
-map Q @q
-
-" alternate leader key: , instead of \
-let mapleader = ","
-let g:mapleader = ","
-
-" quick save mapping
-nnoremap <leader><leader> :w<CR>
+" PLUGIN SETTINGS AND MAPPINGS
 
 " Gist plugin settings
 let g:gist_post_anonymous = 1
@@ -105,13 +94,64 @@ let g:ctrlp_max_files=0
 " Gundo plugin settings
 nnoremap <leader>u :GundoToggle<CR>
 
+" Syntastic
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+nnoremap <leader>se :Errors<CR>
+nnoremap <leader>sr :SyntasticReset<CR>
+
 " vim-hardtime settings
 " default on
 "let g:hardtime_default_on = 1
 " set timeout length
 "let g:hardtime_timeout = 100
 
-" Settings
+" force vim-vroom mapping
+nnoremap <leader>r :VroomRunTestFile<CR>
+
+" NERDtree
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" Ctrl-P
+nnoremap <leader>p :CtrlPMixed<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+
+" Easy Align Mappings
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Quick comment
+nnoremap <leader>/ :Commentary<CR>
+vnoremap <leader>/ :Commentary<CR>
+
+" Fugitive bindings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+
+" <space><char> opens bi-directional easymotion character match
+nmap <space> <Plug>(easymotion-bd-f)
+vmap <space> <Plug>(easymotion-bd-f)
+
+" Pry
+"nnoremap <leader>p :! pry<CR>
+"nnoremap <leader>P :! pry -r %<CR>
+
+"-------------------
+" END PLUGIN SECTION
+"-------------------
+
+" COLORSCHEME
+
+colorscheme zenburn
+"colorscheme hybrid_material
+"set background=dark
+"colorscheme alduin
+"let g:alduin_Shout_Become_Ethereal = 1
+
+" SETTINGS AND AUTOCOMMANDS
+
 set scrolloff=4
 set ruler
 set number
@@ -120,12 +160,6 @@ set colorcolumn=81
 set clipboard=unnamedplus
 set list listchars=tab:▸\ ,eol:¬
 
-" COLORSCHEME
-"colorscheme zenburn
-colorscheme hybrid_material
-set background=dark
-"colorscheme alduin
-"let g:alduin_Shout_Become_Ethereal = 1
 " v- gets rid of | in split gutters
 set fillchars+=vert:\ 
 set t_Co=256
@@ -157,8 +191,27 @@ set expandtab " use spaces as tabs
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
+set ttimeoutlen=-1
 
-" Mappings
+" MAPPINGS
+
+" alternate leader key: , instead of \
+let mapleader = ","
+let g:mapleader = ","
+
+" map common ex-command typos to their intended commands
+command! Q q
+command! W w
+command! Wq wq
+command! wQ wq
+command! WQ wq
+
+" Execute macro in q
+map Q @q
+
+" quick save mapping
+nnoremap <leader><leader> :w<CR>
+
 nnoremap j gj
 nnoremap k gk
 
@@ -188,25 +241,11 @@ nmap <leader><leader> :w<CR>
 nnoremap <leader>. ``
 vnoremap <leader>. ``
 
-" force vim-vroom mapping
-nnoremap <leader>r :VroomRunTestFile<CR>
-
 " tabs
 nnoremap <leader>tc :tabnew<CR>
 nnoremap <leader>tx :tabclose<CR>
 nnoremap <leader>tv :tabnew ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
-
-" NERDtree
-nnoremap <leader>n :NERDTreeToggle<CR>
-
-" Pry
-"nnoremap <leader>p :! pry<CR>
-"nnoremap <leader>P :! pry -r %<CR>
-
-" Ctrl-P
-nnoremap <leader>p :CtrlPMixed<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
 
 " go into haskell repl with current file loaded
 nnoremap <leader>g :! ghci %<CR>
@@ -214,36 +253,12 @@ nnoremap <leader>g :! ghci %<CR>
 " source vimrc
 nnoremap <leader>v :source ~/.config/nvim/init.vim<CR>
 
-" Easy Align Mappings
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " Eval whole file (clojure, vim-fireplace)
 "nnoremap <leader>E :%Eval<CR>
-
-" Quick comment
-nnoremap <leader>/ :Commentary<CR>
-vnoremap <leader>/ :Commentary<CR>
 
 " Expand-region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
-" Fugitive bindings
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-
-" <space><char> opens bi-directional easymotion character match
-nmap <space> <Plug>(easymotion-bd-f)
-vmap <space> <Plug>(easymotion-bd-f)
-
-" Syntastic
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-nnoremap <leader>se :Errors<CR>
-nnoremap <leader>sr :SyntasticReset<CR>
 
 " Terminal shortcuts
 tnoremap <leader>e <C-\><C-n>
@@ -251,9 +266,6 @@ tnoremap <leader>e <C-\><C-n>
 " quick regex search & replace
 nnoremap <leader>S :%s/\v/g<LEFT><LEFT>
 vnoremap <leader>S :s/\v/g<LEFT><LEFT>
-
-" EXPERIMENTAL, DO NOT COMMIT
-set ttimeoutlen=-1
 
 " set ,; to be last ex-command
 nnoremap <leader>; :<UP>
