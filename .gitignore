@@ -1,2 +1,5 @@
 bundle/
 !bundle/Vundle.vim
+autoload
+plugged
+spell
