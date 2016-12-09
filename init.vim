@@ -145,9 +145,6 @@ let g:mapleader = ","
 " map common ex-command typos to their intended commands
 command! Q q
 command! W w
-command! Wq wq
-command! wQ wq
-command! WQ wq
 
 " Execute macro in q
 map Q @q
