@@ -82,66 +82,6 @@ call plug#end()
 
 runtime macros/matchit.vim
 
-" PLUGIN SETTINGS AND MAPPINGS
-
-" Gist plugin settings
-let g:gist_post_anonymous = 1
-vnoremap <leader>G :Gist -a -b<CR>
-
-" stops CtrlP from limiting number of indexed files
-let g:ctrlp_max_files=0
-
-" Gundo plugin settings
-nnoremap <leader>u :GundoToggle<CR>
-
-" Syntastic
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-nnoremap <leader>se :Errors<CR>
-nnoremap <leader>sr :SyntasticReset<CR>
-
-" vim-hardtime settings
-" default on
-"let g:hardtime_default_on = 1
-" set timeout length
-"let g:hardtime_timeout = 100
-
-" force vim-vroom mapping
-nnoremap <leader>r :VroomRunTestFile<CR>
-
-" NERDtree
-nnoremap <leader>n :NERDTreeToggle<CR>
-
-" Ctrl-P
-nnoremap <leader>p :CtrlPMixed<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
-
-" Easy Align Mappings
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-" Quick comment
-nnoremap <leader>/ :Commentary<CR>
-vnoremap <leader>/ :Commentary<CR>
-
-" Fugitive bindings
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gd :Gdiff<CR>
-
-" <space><char> opens bi-directional easymotion character match
-nmap <space> <Plug>(easymotion-bd-f)
-vmap <space> <Plug>(easymotion-bd-f)
-
-" Pry
-"nnoremap <leader>p :! pry<CR>
-"nnoremap <leader>P :! pry -r %<CR>
-
-"-------------------
-" END PLUGIN SECTION
-"-------------------
-
 " COLORSCHEME
 
 colorscheme zenburn
@@ -269,3 +209,68 @@ vnoremap <leader>S :s/\v/g<LEFT><LEFT>
 
 " set ,; to be last ex-command
 nnoremap <leader>; :<UP>
+
+" ---------------------
+" BEGIN PLUGIN SETTINGS
+" ---------------------
+
+" Gist plugin settings
+let g:gist_post_anonymous = 1
+vnoremap <leader>G :Gist -a -b<CR>
+
+" stops CtrlP from limiting number of indexed files
+let g:ctrlp_max_files=0
+
+" Gundo plugin settings
+nnoremap <leader>u :GundoToggle<CR>
+
+" Syntastic
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+nnoremap <leader>se :Errors<CR>
+nnoremap <leader>sr :SyntasticReset<CR>
+
+" vim-hardtime settings
+" default on
+"let g:hardtime_default_on = 1
+" set timeout length
+"let g:hardtime_timeout = 100
+
+" force vim-vroom mapping
+nnoremap <leader>r :VroomRunTestFile<CR>
+
+" NERDtree
+nnoremap <leader>n :NERDTreeToggle<CR>
+
+" Ctrl-P
+nnoremap <leader>p :CtrlPMixed<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>c :CtrlPTag<CR>
+
+" Easy Align Mappings
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" Quick comment
+nnoremap <leader>/ :Commentary<CR>
+vnoremap <leader>/ :Commentary<CR>
+
+" Fugitive bindings
+" remember, in a status window, '-' adds/removes from staging, and 'p' adds/removes patch wise
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gdiff<CR>
+nnoremap <leader>gc :Gcommit<CR>
+
+" <space><char> opens bi-directional easymotion character match
+nmap <space> <Plug>(easymotion-bd-f)
+vmap <space> <Plug>(easymotion-bd-f)
+
+" Pry
+"nnoremap <leader>p :! pry<CR>
+"nnoremap <leader>P :! pry -r %<CR>
+
+"--------------------
+" END PLUGIN SETTINGS
+"--------------------
