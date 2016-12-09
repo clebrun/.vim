@@ -109,6 +109,9 @@ augroup CursorLineOnlyInActiveWindow
   autocmd WinLeave * setlocal nocursorline
 augroup END
 
+" Stop automatically inserting comments into newlines after commented lines
+au FileType * set fo-=cro
+
 syntax enable
 filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
