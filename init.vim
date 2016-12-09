@@ -188,7 +188,15 @@ nnoremap <leader>tv :tabnew ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
 
 " go into haskell repl with current file loaded
-nnoremap <leader>g :! ghci %<CR>
+"nnoremap <leader>g :! ghci %<CR> " Retired mapping
+
+" CTAGS bindings
+" GOTO ctag for definition under cursor
+nnoremap <leader>cd <C-]>
+" Come back from ctag definition
+nnoremap <leader>cb <C-o>
+" Regenerate CTags
+nnoremap <silent> <leader>cr :! ctags -R .<CR>
 
 " source vimrc
 nnoremap <leader>v :source ~/.config/nvim/init.vim<CR>
