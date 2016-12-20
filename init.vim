@@ -23,6 +23,7 @@ Plug 'terryma/vim-expand-region'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-commentary'
 Plug 'sjl/gundo.vim'
+Plug 'ervandew/supertab'
 
 " Snippets
 Plug 'honza/vim-snippets'
@@ -61,6 +62,11 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 "Plug 'snoe/nvim-parinfer.js'
 "Plug 'vim-scripts/paredit.vim'
 
+" Haskell
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Misc
 "Plug 'tomtom/tlib_vim'
 " fuzzy file search
@@ -81,6 +87,7 @@ Plug 'kchmck/vim-coffee-script'
 call plug#end()
 
 runtime macros/matchit.vim
+call deoplete#enable()
 
 " COLORSCHEME
 
