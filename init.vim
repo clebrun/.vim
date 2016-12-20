@@ -262,8 +262,8 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Quick comment
-nnoremap <leader>/ :Commentary<CR>
-vnoremap <leader>/ :Commentary<CR>
+nnoremap # :Commentary<CR>
+vnoremap # :Commentary<CR>
 
 " Fugitive bindings
 " remember, in a status window, '-' adds/removes from staging, and 'p' adds/removes patch wise
