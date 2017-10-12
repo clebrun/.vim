@@ -14,7 +14,8 @@ call plug#begin('~/.config/nvim/plugged')
 
 "" Plugs Groups
 " Default
-Plug 'scrooloose/syntastic'
+" Plug 'scrooloose/syntastic' " Depreciated in favour of the ansynchronous neomake
+Plug 'neomake/neomake'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
 Plug 'xolox/vim-misc'
@@ -63,32 +64,37 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 "Plug 'vim-scripts/paredit.vim'
 
 " Haskell
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neovimhaskell/haskell-vim'
+" Plug 'eagletmt/ghcmod-vim'
+" Plug 'eagletmt/neco-ghc'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'neovimhaskell/haskell-vim'
 
 " Misc
 "Plug 'tomtom/tlib_vim'
 " fuzzy file search
 Plug 'ctrlpvim/ctrlp.vim'
 " easy gisting, easy life
-Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
+" Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><space>
 Plug 'easymotion/vim-easymotion'
 " Give me a hard time for using hjkl repeatedly
 "Plug 'takac/vim-hardtime'
 " For now doesn't work with neovim.
-Plug 'jceb/vim-orgmode'
-Plug 'tpope/vim-speeddating'
+" Plug 'jceb/vim-orgmode'
+" Plug 'tpope/vim-speeddating'
 " Live markdown preview, requires livedown npm package
-Plug 'shime/vim-livedown'
-Plug 'kchmck/vim-coffee-script'
+" Plug 'shime/vim-livedown'
+" Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
 runtime macros/matchit.vim
-call deoplete#enable()
+" call deoplete#enable()
+" Call neomake automatically when writing and after 750 ms after a normal mode command
+call neomake#configure#automake('nw', 500)
+let g:neomake_warning_sign={'text': 'W'}
+let g:neomake_err_sign={'text': 'E'}
+let g:neomake_info_sign={'text': 'I'}
 
 " COLORSCHEME
 
