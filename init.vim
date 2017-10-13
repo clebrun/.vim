@@ -92,9 +92,9 @@ runtime macros/matchit.vim
 " call deoplete#enable()
 " Call neomake automatically when writing and after 750 ms after a normal mode command
 call neomake#configure#automake('nw', 500)
-let g:neomake_warning_sign={'text': 'W'}
-let g:neomake_err_sign={'text': 'E'}
-let g:neomake_info_sign={'text': 'I'}
+" let g:neomake_warning_sign={'text': 'W'}
+" let g:neomake_err_sign={'text': 'E'}
+" let g:neomake_info_sign={'text': 'I'}
 
 " COLORSCHEME
 
