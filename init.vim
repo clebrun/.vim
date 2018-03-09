@@ -289,6 +289,12 @@ vmap <space> <Plug>(easymotion-bd-f)
 "nnoremap <leader>p :! pry<CR>
 "nnoremap <leader>P :! pry -r %<CR>
 
+" GhcMod
+" nnoremap <leader>tw :GhcModTypeInsert<CR>
+" nnoremap <leader>ts :GhcModTypeSplitFunCase<CR>
+" nnoremap <leader>tq :GhcModType<CR>
+" nnoremap <leader>te :GhcModTypeClear<CR>
+
 "--------------------
 " END PLUGIN SETTINGS
 "--------------------
