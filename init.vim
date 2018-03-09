@@ -221,12 +221,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " Terminal shortcuts
 tnoremap <leader>e <C-\><C-n>
 
-" quick regex search & replace
-nnoremap <leader>S :%s/\v/g<LEFT><LEFT>
-vnoremap <leader>S :s/\v/g<LEFT><LEFT>
 
-" set ,; to be last ex-command
-nnoremap <leader>; :<UP>
 
 " ---------------------
 " BEGIN PLUGIN SETTINGS
