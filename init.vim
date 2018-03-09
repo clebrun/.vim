@@ -70,6 +70,8 @@ Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 " Plug 'eagletmt/neco-ghc'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'neovimhaskell/haskell-vim'
+" not sure if this belongs here?
+" Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 " Misc
 "Plug 'tomtom/tlib_vim'
