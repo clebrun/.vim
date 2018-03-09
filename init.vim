@@ -221,6 +221,8 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " Terminal shortcuts
 tnoremap <leader>e <C-\><C-n>
 
+" Toggle spell-checking
+nnoremap <leader>P :set spell!<CR>
 
 
 " ---------------------
