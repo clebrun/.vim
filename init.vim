@@ -43,6 +43,8 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'vim-ruby/vim-ruby'
 Plug 'AlessandroYorba/Alduin'
 Plug 'mswift42/vim-themes'
+Plug 'liuchengxu/space-vim-dark'
+'
 
 " Git
 Plug 'airblade/vim-gitgutter'
