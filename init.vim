@@ -182,8 +182,10 @@ nnoremap <leader>w <c-w>
 " turn off search highlighting
 nnoremap <leader><BS> :nohlsearch<CR>
 
-" quick write
-nmap <leader><leader> :w<CR>
+" alternate escape
+" nnoremap <leader>. <ESC>
+" inoremap <leader>. <ESC>
+" vnoremap <leader>. <ESC>
 
 " alternate tilda in normal mode
 nnoremap <leader>. ``
