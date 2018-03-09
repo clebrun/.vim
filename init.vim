@@ -226,6 +226,8 @@ tnoremap <leader>e <C-\><C-n>
 " Toggle spell-checking
 nnoremap <leader>P :set spell!<CR>
 
+" Quick plug update all
+nnoremap <leader>U :PlugUpgrade \| PlugClean \| PlugUpdate<CR>
 
 " ---------------------
 " BEGIN PLUGIN SETTINGS
