@@ -192,10 +192,9 @@ nnoremap <leader>. ``
 vnoremap <leader>. ``
 
 " tabs
-nnoremap <leader>tc :tabnew<CR>
-nnoremap <leader>tx :tabclose<CR>
-nnoremap <leader>tv :tabnew ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
+"nnoremap <leader>tc :tabnew<CR>
+"nnoremap <leader>tx :tabclose<CR>
+"nnoremap <leader>ts :tabnew ~/.config/nvim/bundle/vim-snippets/snippets<CR>
 
 " go into haskell repl with current file loaded
 "nnoremap <leader>g :! ghci %<CR> " Retired mapping
@@ -210,6 +209,7 @@ nnoremap <silent> <leader>cr :! ctags -R .<CR>
 
 " source vimrc
 nnoremap <leader>v :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>V :e ~/.config/nvim/init.vim<CR>
 
 " Eval whole file (clojure, vim-fireplace)
 "nnoremap <leader>E :%Eval<CR>
