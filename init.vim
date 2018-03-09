@@ -278,6 +278,9 @@ nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
 
+" Easymotion
+" rebind default leader to not leader leader
+map <Leader> <Plug>(easymotion-prefix)
 " <space><char> opens bi-directional easymotion character match
 nmap <space> <Plug>(easymotion-bd-f)
 vmap <space> <Plug>(easymotion-bd-f)
