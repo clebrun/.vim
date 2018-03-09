@@ -53,7 +53,7 @@ Plug 'tpope/vim-fugitive'
 " Ruby
 Plug 'ngmy/vim-rubocop'
 "Plug 'tpope/vim-cucumber'
-Plug 'skalnik/vim-vroom'
+"Plug 'skalnik/vim-vroom'
 Plug 'nelstrom/vim-textobj-rubyblock' | Plug 'kana/vim-textobj-user'
 
 " Clojure
@@ -79,14 +79,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Plug 'mattn/gist-vim' | Plug 'mattn/webapi-vim'
 " move around a file easier, mapped to <leader><space>
 Plug 'easymotion/vim-easymotion'
-" Give me a hard time for using hjkl repeatedly
-"Plug 'takac/vim-hardtime'
-" For now doesn't work with neovim.
-" Plug 'jceb/vim-orgmode'
-" Plug 'tpope/vim-speeddating'
-" Live markdown preview, requires livedown npm package
-" Plug 'shime/vim-livedown'
-" Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
