@@ -100,7 +100,7 @@ colorscheme zenburn
 
 " SETTINGS AND AUTOCOMMANDS
 
-set scrolloff=4
+set scrolloff=18
 set ruler
 set number
 set shell=zsh
