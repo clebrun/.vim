@@ -285,6 +285,11 @@ require('telescope').setup {
       },
     },
   },
+  pickers = {
+    find_files = {
+      find_command = { "fd", "-j2", "-tf", "-HIL", "-c", "never", "--ignore-file", "/home/hxe/.fdignore" }
+    }
+  }
 }
 
 -- Enable telescope fzf native, if installed
@@ -338,7 +343,7 @@ vim.keymap.set('n', '<leader>/', function()
 end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>fg', require('telescope.builtin').git_files, { desc = 'Search for [F]iles in [G]it' })
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ile [S]earch' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]ile' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
