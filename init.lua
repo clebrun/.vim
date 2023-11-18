@@ -295,6 +295,9 @@ require('telescope').setup {
         ['<C-d>'] = false,
       },
     },
+    preview = {
+      filesize_limit = 0.1 -- Don't show file previews for anything over 0.1Mb
+    }
   },
   pickers = {
     find_files = {
