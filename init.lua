@@ -139,10 +139,17 @@ require('lazy').setup({
     end
   },
 
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   config = function()
+  --     vim.cmd.colorscheme 'tokyonight'
+  --   end
+  -- },
+
   {
-    'folke/tokyonight.nvim',
+    'catppuccin/nvim',
     config = function()
-      vim.cmd.colorscheme 'tokyonight'
+      vim.cmd.colorscheme 'catppuccin-macchiato'
     end
   },
 
