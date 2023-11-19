@@ -78,6 +78,11 @@ require('lazy').setup({
     },
   },
 
+  {
+    'L3MON4D3/LuaSnip',
+    version = 'v2.*'
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
   {
@@ -588,7 +593,10 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-require('luasnip.loaders.from_vscode').lazy_load()
+require('luasnip.loaders.from_vscode').lazy_load() -- What does this do exactly?
+require("luasnip.loaders.from_lua").lazy_load({    -- load snippets from snips dir
+  paths = "./lua/snips",
+})
 luasnip.config.setup {}
 
 cmp.setup {
