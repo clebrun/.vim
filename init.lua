@@ -218,6 +218,28 @@ require('lazy').setup({
     },
   },
 
+  {
+    'ThePrimeagen/harpoon',
+    dependencies = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function()
+      local hu = require("harpoon.ui")
+      -- nav to harpoon x
+      vim.keymap.set('n', '<leader>1', function() hu.nav_file(1) end, { desc = 'Nav to harpoon 1' })
+      vim.keymap.set('n', '<leader>2', function() hu.nav_file(2) end, { desc = 'Nav to harpoon 2' })
+      vim.keymap.set('n', '<leader>3', function() hu.nav_file(3) end, { desc = 'Nav to harpoon 3' })
+      vim.keymap.set('n', '<leader>4', function() hu.nav_file(4) end, { desc = 'Nav to harpoon 4' })
+      vim.keymap.set('n', '<leader>5', function() hu.nav_file(5) end, { desc = 'Nav to harpoon 5' })
+
+      vim.keymap.set('n', '<leader>,', hu.toggle_quick_menu, { desc = 'harpoon menu' })
+
+      local hm = require("harpoon.mark")
+      vim.keymap.set('n', '<leader>.', hm.add_file, { desc = 'harpoon add file' })
+    end,
+    opts = {}
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
