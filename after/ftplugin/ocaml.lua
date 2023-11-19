@@ -1,3 +1,5 @@
+vim.opt_local.shiftwidth = 2
+
 vim.keymap.set('n', '<localleader>db',
 	-- tmux popups don't inherit some env vars when running a command,
 	-- so to get dune to work we need to make sure the env for opam is
