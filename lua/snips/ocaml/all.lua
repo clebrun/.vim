@@ -14,7 +14,7 @@ local i = ls.insert_node
 return {
 	-- test expect
 	s("txp", {
-		t("let%expect_test = \""), i(1, "default"), t({ "\"" }),
+		t("let%expect_test \""), i(1, "default"), t({ "\" =" }),
 		-- let x = test in
 		-- Format.printf "%a@" (i().pp i()) x
 		t({ "", "  " }), i(2),
