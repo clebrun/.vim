@@ -280,6 +280,8 @@ vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
+vim.o.autoindent = true
+vim.o.smartindent = true
 
 -- Save undo history
 vim.o.undofile = true
@@ -425,7 +427,10 @@ vim.defer_fn(function()
     auto_install = false,
 
     highlight = { enable = true },
-    indent = { enable = true },
+    indent = {
+      enable = true,
+      disable = { "ocaml" }
+    },
     incremental_selection = {
       enable = true,
       keymaps = {
