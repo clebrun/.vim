@@ -133,8 +133,17 @@ require('lazy').setup({
 
   {
     'catppuccin/nvim',
+    -- config = function()
+    --   vim.cmd.colorscheme 'catppuccin-macchiato'
+    -- end
+  },
+
+  {
+    -- 'NLKNguyen/papercolor-theme',
+    'pappasam/papercolor-theme-slim',
     config = function()
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.opt.background = 'light'
+      vim.cmd.colorscheme 'PaperColorSlim'
     end
   },
 
@@ -145,7 +154,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'PaperColor',
         component_separators = '|',
         section_separators = '',
       },
