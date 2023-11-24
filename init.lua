@@ -124,32 +124,12 @@ require('lazy').setup({
     },
   },
 
-  -- {
-  --   -- Theme inspired by Atom
-  --   'navarasu/onedark.nvim',
-  --   priority = 1000,
-  --   config = function()
-  --     vim.cmd.colorscheme 'onedark'
-  --   end,
-  -- },
-
   {
-    "kylechui/nvim-surround",
+    'kylechui/nvim-surround',
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
-    config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
-    end
+    event = 'VeryLazy',
+    opts = {}
   },
-
-  -- {
-  --   'folke/tokyonight.nvim',
-  --   config = function()
-  --     vim.cmd.colorscheme 'tokyonight'
-  --   end
-  -- },
 
   {
     'catppuccin/nvim',
@@ -218,9 +198,7 @@ require('lazy').setup({
     'altermo/ultimate-autopair.nvim',
     event = { 'InsertEnter', 'CmdlineEnter' },
     branch = 'v0.6', --recomended as each new version will have breaking changes
-    opts = {
-      --Config goes here
-    },
+    opts = {},
   },
 
   {
@@ -425,7 +403,7 @@ vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
     -- ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
-    ensure_installed = { 'lua', 'rust', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'ocaml', 'clojure' },
+    ensure_installed = { 'lua', 'vimdoc', 'vim', 'bash', 'clojure', 'ocaml' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
