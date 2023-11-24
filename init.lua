@@ -314,8 +314,8 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- H and L are shortcuts for first non-whitespace and end of line
-vim.keymap.set('n', 'H', "'_'", { expr = true, silent = true })
-vim.keymap.set('n', 'L', "'g_'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'H', "'_'", { expr = true, silent = true })
+vim.keymap.set({ 'n', 'v' }, 'L', "'g_'", { expr = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
