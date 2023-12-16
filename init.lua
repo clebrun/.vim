@@ -548,9 +548,9 @@ require('mason-lspconfig').setup()
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  ocamllsp = {
-    filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "dune", "reason" }
-  },
+  -- ocamllsp = {
+  --   filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "dune", "reason" }
+  -- },
 
   lua_ls = {
     Lua = {
@@ -584,6 +584,24 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+require('lspconfig')['ocamllsp'].setup({
+  filetypes = { "ocaml", "ocaml.interface", "ocaml.menhir", "dune", "reason" },
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = servers["ocamllsp"]
+  -- Trying out a snippet: better go to definition?
+  -- https://github.com/cubiquitous/nvim_configs/blob/c50a74ffbc9451f2e1a2af1bda6ed10a2d36af45/lua/user/lsp/utils.lua#L63
+  -- handlers = {
+  --   ['textDocument/definition'] = function(_, result, _)
+  --     if not vim.tbl_islist(result) or type(result) ~= 'table' then
+  --       return result
+  --     end
+  --     ---@diagnostic disable-next-line: missing-parameter
+  --     vim.lsp.util.jump_to_location(result[1])
+  --   end,
+  -- },
+})
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
