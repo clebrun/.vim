@@ -7,6 +7,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+vim.keymap.set('n', "<leader>m", ":silent! ! tmux popup -h 90\\% -w 90\\% 'zsh -ic make'<CR>",
+  { buffer = false, desc = "Run default [M]ake command" })
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
