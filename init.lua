@@ -7,8 +7,16 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
-vim.keymap.set('n', "<leader>m", ":silent! ! tmux popup -h 90\\% -w 90\\% 'zsh -ic make'<CR>",
-  { buffer = false, desc = "Run default [M]ake command" })
+-- save file with Ctrl s
+vim.keymap.set('n', "<c-s>", ":w<CR>")
+
+vim.keymap.set('n', "<leader>'", ":b#<CR>")
+
+vim.opt.cursorline = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+
+vim.opt.scrolloff = 8
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    https://github.com/folke/lazy.nvim
@@ -41,6 +49,27 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  {
+    "NoahTheDuke/vim-just",
+    ft = { "just" },
+  },
+
+  {
+    "alexghergh/nvim-tmux-navigation",
+    config = function()
+      require("nvim-tmux-navigation").setup {
+        keybindings = {
+          left = "<C-h>",
+          down = "<C-j>",
+          up = "<C-k>",
+          right = "<C-l>",
+          -- last_active = "<C-\\>",
+          -- next = "<C-Space>",
+        }
+      }
+    end
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -88,6 +117,20 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',  opts = {} },
+
+  {
+    'folke/flash.nvim',
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "<c-j>", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "<c-t>", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+      { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+      { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      -- { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    }
+  },
+
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -136,18 +179,21 @@ require('lazy').setup({
 
   {
     'catppuccin/nvim',
-    -- config = function()
-    --   vim.cmd.colorscheme 'catppuccin-macchiato'
-    -- end
+    config = function() vim.cmd.colorscheme 'catppuccin-frappe' end
+  },
+
+  {
+    'phha/zenburn.nvim',
+    -- config = function() vim.cmd.colorscheme 'zenburn' end
   },
 
   {
     -- 'NLKNguyen/papercolor-theme',
     'pappasam/papercolor-theme-slim',
-    config = function()
-      vim.opt.background = 'light'
-      vim.cmd.colorscheme 'PaperColorSlim'
-    end
+    -- config = function()
+    -- vim.opt.background = 'dark'
+    -- vim.cmd.colorscheme 'PaperColorSlim'
+    -- end
   },
 
   {
@@ -157,7 +203,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'PaperColor',
+        -- theme = 'PaperColor',
         component_separators = '|',
         section_separators = '',
       },
@@ -206,12 +252,12 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
-  {
-    'altermo/ultimate-autopair.nvim',
-    event = { 'InsertEnter', 'CmdlineEnter' },
-    branch = 'v0.6', --recomended as each new version will have breaking changes
-    opts = {},
-  },
+  -- {
+  --   'altermo/ultimate-autopair.nvim',
+  --   event = { 'InsertEnter', 'CmdlineEnter' },
+  --   branch = 'v0.6', --recomended as each new version will have breaking changes
+  --   opts = {},
+  -- },
 
   {
     'ThePrimeagen/harpoon',
@@ -414,7 +460,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
     -- Add languages to be installed here that you want installed for treesitter
-    ensure_installed = { 'lua', 'vimdoc', 'vim', 'bash', 'clojure', 'ocaml', 'make', 'json', 'toml', 'html', 'ruby', 'yaml', 'markdown', 'javascript' },
+    ensure_installed = { 'lua', 'vimdoc', 'vim', 'bash', 'clojure', 'ocaml', 'make', 'json', 'toml', 'html', 'ruby', 'yaml', 'markdown', 'javascript', 'sql' },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = false,
